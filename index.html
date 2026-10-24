@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frontend Days 2027 — конференция фронтенд-разработчиков</title>
+  <meta name="description" content="Два дня, три трека и 30 докладов о фронтенде: архитектура, производительность, доступность и дизайн-системы. Москва, 22–23 апреля 2027.">
+  <meta name="theme-color" content="#2541ff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">FD<span>27</span></a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#schedule">Программа</a><a href="#speakers">Спикеры</a><a href="#tickets">Билеты</a><a href="#venue">Место</a></nav>
+      <a class="btn btn--pink header__cta" href="#tickets">Купить билет</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="hero__meta"><span>22–23 апреля 2027</span><span>Москва · Онлайн</span></p>
+        <h1>Frontend<br><span class="outline">Days</span> 2027</h1>
+        <div class="hero__row">
+          <p class="hero__lead">Конференция для тех, кто делает интерфейсы: архитектура приложений, производительность, доступность и дизайн-системы. Два дня, три трека, без рекламных докладов.</p>
+          <div class="countdown" aria-label="До начала конференции" role="timer">
+            <div><b id="cd-d">00</b><span>дней</span></div><div><b id="cd-h">00</b><span>часов</span></div><div><b id="cd-m">00</b><span>минут</span></div><div><b id="cd-s">00</b><span>секунд</span></div>
+          </div>
+        </div>
+        <div class="hero__cta"><a class="btn btn--pink" href="#tickets">Купить билет</a><a class="btn btn--line" href="#schedule">Смотреть программу</a></div>
+      </div>
+      <div class="marquee" aria-hidden="true"><div>Архитектура ✦ Производительность ✦ Доступность ✦ Дизайн-системы ✦ TypeScript ✦ CSS ✦ Тестирование ✦ Архитектура ✦ Производительность ✦ Доступность ✦ Дизайн-системы ✦ TypeScript ✦ CSS ✦ Тестирование ✦</div></div>
+    </section>
+
+    <section class="numbers wrap" aria-label="Конференция в цифрах"><div><b>1 200</b>участников</div><div><b>30</b>докладов</div><div><b>3</b>трека</div><div><b>12</b>воркшопов</div></section>
+
+    <section class="section" id="schedule">
+      <div class="wrap">
+        <header class="head"><h2>Программа</h2>
+          <div class="controls">
+            <div class="tabs" role="tablist" aria-label="Дни конференции"><button role="tab" aria-selected="true" data-day="1">22 апреля</button><button role="tab" aria-selected="false" data-day="2">23 апреля</button></div>
+            <label class="track-select">Трек <select id="track"><option value="">Все</option><option value="arch">Архитектура</option><option value="perf">Производительность</option><option value="ux">UX и доступность</option></select></label>
+            <label class="mine"><input type="checkbox" id="only-mine"> Моё расписание <b id="mine-count">0</b></label>
+          </div>
+        </header>
+        <ol class="talks" id="talks" aria-live="polite"></ol>
+      </div>
+    </section>
+
+    <section class="section section--blue" id="speakers">
+      <div class="wrap">
+        <header class="head"><h2>Спикеры</h2><p>Практики из продуктовых команд. Нажмите на карточку, чтобы прочитать о докладе.</p></header>
+        <ul class="speakers" id="speaker-list"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="tickets">
+      <div class="wrap">
+        <header class="head"><h2>Билеты</h2><p class="price-note" id="price-note"></p></header>
+        <div class="tickets">
+          <article class="ticket" data-ticket="online"><h3>Онлайн</h3><p class="t-price"><b data-base="6900"></b></p><ul><li>Трансляция всех треков</li><li>Записи докладов</li><li>Чат со спикерами</li></ul><button class="btn btn--line" type="button" data-pick="online">Выбрать</button></article>
+          <article class="ticket ticket--hot" data-ticket="offline"><p class="tag">Хит</p><h3>Офлайн</h3><p class="t-price"><b data-base="24900"></b></p><ul><li>Два дня на площадке</li><li>Обеды и afterparty</li><li>Записи докладов</li><li>Нетворкинг-зона</li></ul><button class="btn btn--pink" type="button" data-pick="offline">Выбрать</button></article>
+          <article class="ticket" data-ticket="pro"><h3>Офлайн + воркшоп</h3><p class="t-price"><b data-base="39900"></b></p><ul><li>Всё из «Офлайн»</li><li>Воркшоп на выбор (4 часа)</li><li>Сертификат участника</li></ul><button class="btn btn--line" type="button" data-pick="pro">Выбрать</button></article>
+        </div>
+        <form class="order" id="order" novalidate>
+          <h3>Оформление <span id="o-type"></span></h3>
+          <div class="order__grid">
+            <div class="field"><span class="label" id="qty-l">Количество</span><div class="stepper" role="group" aria-labelledby="qty-l"><button type="button" data-q="-1" aria-label="Меньше">−</button><output id="qty">1</output><button type="button" data-q="1" aria-label="Больше">+</button></div></div>
+            <div class="field"><label for="o-email">Email для билетов</label><input id="o-email" name="email" type="email" autocomplete="email" placeholder="you@company.ru"></div>
+            <div class="field"><label for="o-promo">Промокод</label><input id="o-promo" name="promo" placeholder="FRONT10"></div>
+            <div class="field total"><span class="label">Итого</span><b id="o-total"></b><small id="o-note"></small></div>
+          </div>
+          <p class="o-msg" role="status"></p>
+          <button class="btn btn--pink" type="submit">Перейти к оплате</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="venue">
+      <div class="wrap venue">
+        <div><h2>Место</h2><p>Технопарк «Сфера», Москва. Два зала на 800 и 400 мест, зона воркшопов и терраса.</p><p>10 минут пешком от метро. Для участников с инвалидностью — пандусы, лифты и места в первом ряду: напишите нам заранее.</p></div>
+        <div class="halls" aria-hidden="true"><div class="hall hall--a">Зал А<small>Архитектура</small></div><div class="hall hall--b">Зал B<small>Производительность</small></div><div class="hall hall--c">Зал C<small>UX</small></div><div class="hall hall--d">Воркшопы</div><div class="hall hall--e">Кофе и нетворкинг</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top">FD<span>27</span></a><p>© <span data-current-year>2026</span> Frontend Days · Демо-шаблон: конференция, спикеры и цены вымышлены</p><a href="mailto:hello@fd27.example">hello@fd27.example</a></div></footer>
+
+  <dialog class="modal" id="modal" aria-labelledby="m-name">
+    <button class="modal__close" type="button" data-close aria-label="Закрыть">✕</button>
+    <div class="modal__ava" id="m-ava" aria-hidden="true"></div>
+    <h3 id="m-name"></h3><p class="modal__role" id="m-role"></p>
+    <p class="modal__talk" id="m-talk"></p><p id="m-bio"></p>
+  </dialog>
+</body>
+</html>
