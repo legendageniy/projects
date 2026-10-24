@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сулико — грузинский ресторан. Меню и бронирование</title>
+  <meta name="description" content="Грузинская кухня в центре города: хинкали ручной лепки, хачапури из тандыра и вина из Кахетии. Меню и бронирование стола онлайн.">
+  <meta name="theme-color" content="#5c1520">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top" aria-label="Сулико — наверх">Сулико</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#menu">Меню</a><a href="#about">О нас</a><a href="#reserve">Бронь</a><a href="#contacts">Контакты</a></nav>
+      <p class="status" id="status" aria-live="polite"></p>
+      <a class="btn btn--gold header__cta" href="#reserve">Забронировать</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню сайта"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="kicker">Грузинский ресторан · с 2015 года</p>
+          <h1>Где гостей встречают <span>как родных</span></h1>
+          <p>Хинкали лепим на глазах у гостей, хачапури печём в тандыре, вино везём от семейных марани Кахетии.</p>
+          <div class="actions"><a class="btn btn--gold" href="#reserve">Забронировать стол</a><a class="btn btn--line" href="#menu">Смотреть меню</a></div>
+        </div>
+        <div class="hero__art" role="img" aria-label="Иллюстрация: хачапури по-аджарски и бокал вина">
+          <svg viewBox="0 0 420 380" aria-hidden="true">
+            <circle cx="210" cy="200" r="170" fill="#f3e3c7"/>
+            <circle cx="210" cy="200" r="150" fill="none" stroke="#c99a4b" stroke-width="2" stroke-dasharray="2 8"/>
+            <path d="M70 210 C110 120 310 120 350 210 C310 300 110 300 70 210Z" fill="#d89a4e"/>
+            <path d="M110 210 C140 160 280 160 310 210 C280 260 140 260 110 210Z" fill="#f6d35b"/>
+            <ellipse cx="210" cy="210" rx="34" ry="26" fill="#fff6dc"/><circle cx="210" cy="210" r="15" fill="#f2a22b"/>
+            <path d="M150 196c10-8 22-8 30 0M240 226c10-6 20-6 28 2" stroke="#fff3c4" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <circle cx="244" cy="200" r="7" fill="#f7e6a8"/>
+            <g transform="translate(330 60)"><path d="M0 0h50l-6 60a19 19 0 0 1-38 0z" fill="#fff" fill-opacity=".55" stroke="#5c1520" stroke-width="3"/><path d="M3 22h44l-3.5 38a16 16 0 0 1-37 0z" fill="#7a1f2b"/><path d="M25 80v40M8 122h34" stroke="#5c1520" stroke-width="3" stroke-linecap="round"/></g>
+            <g fill="#3f5b3a"><ellipse cx="96" cy="120" rx="14" ry="6" transform="rotate(-30 96 120)"/><ellipse cx="114" cy="106" rx="14" ry="6" transform="rotate(20 114 106)"/><ellipse cx="320" cy="300" rx="14" ry="6" transform="rotate(-20 320 300)"/></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <header class="head"><p class="kicker">Меню</p><h2>Готовим по семейным рецептам</h2></header>
+        <div class="menu-bar">
+          <div class="tabs" role="tablist" aria-label="Разделы меню" id="tabs"></div>
+          <label class="veg"><input type="checkbox" id="veg"> Только без мяса</label>
+        </div>
+        <div id="panels"></div>
+        <p class="menu-note">Цены в рублях. Выход блюд и состав аллергенов уточняйте у официанта.</p>
+      </div>
+    </section>
+
+    <section class="section section--wine" id="about">
+      <div class="wrap about">
+        <div><p class="kicker kicker--light">О нас</p><h2>Сулико — это про застолье</h2>
+          <p>Мы открылись в 2015 году как семейное кафе на шесть столов. Сегодня у нас два зала, летняя веранда и винная комната, но правило осталось прежним: никто не уходит голодным.</p></div>
+        <ul class="facts"><li><b>28</b>вин из Кахетии и Имеретии</li><li><b>18</b>складок у правильного хинкали</li><li><b>2</b>тандыра — для хлеба и хачапури</li><li><b>120</b>гостей в двух залах и на веранде</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="reserve">
+      <div class="wrap reserve">
+        <div>
+          <p class="kicker">Бронирование</p><h2>Забронируйте стол</h2>
+          <p>Подтвердим бронь звонком в течение 30 минут. Для банкета больше 12 гостей позвоните администратору: <a href="tel:+74950000000">+7 495 000-00-00</a>.</p>
+          <ul class="perks"><li>Детское меню и стульчики</li><li>Живая музыка по пятницам с 20:00</li><li>Веранда открыта с мая по сентябрь</li></ul>
+        </div>
+        <form class="form" id="form" novalidate>
+          <div class="row">
+            <div class="field"><label for="r-date">Дата</label><input id="r-date" name="date" type="date" required><small class="err" id="e-date"></small></div>
+            <div class="field"><label for="r-time">Время</label><select id="r-time" name="time" required></select><small class="err" id="e-time"></small></div>
+          </div>
+          <div class="field"><span class="label" id="guests-l">Гостей</span>
+            <div class="stepper" role="group" aria-labelledby="guests-l"><button type="button" data-g="-1" aria-label="Меньше гостей">−</button><output id="guests" name="guests">2</output><button type="button" data-g="1" aria-label="Больше гостей">+</button></div></div>
+          <fieldset class="zones"><legend class="label">Зал</legend>
+            <label><input type="radio" name="zone" value="main" checked><span>Основной</span></label>
+            <label><input type="radio" name="zone" value="wine"><span>Винная комната</span></label>
+            <label><input type="radio" name="zone" value="terrace"><span>Веранда</span></label>
+          </fieldset>
+          <div class="row">
+            <div class="field"><label for="r-name">Имя</label><input id="r-name" name="name" autocomplete="name" required><small class="err" id="e-name"></small></div>
+            <div class="field"><label for="r-phone">Телефон</label><input id="r-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required><small class="err" id="e-phone"></small></div>
+          </div>
+          <button class="btn btn--gold btn--wide" type="submit">Забронировать</button>
+          <div class="ok" role="status" tabindex="-1" hidden></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="contacts">
+      <div class="wrap contacts">
+        <div><h2>Как нас найти</h2>
+          <dl><div><dt>Адрес</dt><dd>ул. Покровка, 00, вход со двора</dd></div><div><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 495 000-00-00</a></dd></div><div><dt>Часы</dt><dd id="hours"></dd></div></dl></div>
+        <div class="map" role="img" aria-label="Схема: ресторан в пяти минутах от метро">
+          <svg viewBox="0 0 400 240" aria-hidden="true"><rect width="400" height="240" fill="#ead9bd"/><g stroke="#f7efe4" stroke-width="12"><path d="M0 70h400M0 170h400M90 0v240M290 0v240"/></g><path d="M180 70h110v100H180z" fill="#dcc7a4"/><circle cx="235" cy="120" r="16" fill="#7a1f2b"/><path d="M228 120l5 5 9-10" stroke="#fff" stroke-width="3" fill="none"/><circle cx="90" cy="170" r="10" fill="#3f5b3a"/><text x="106" y="196" font-family="Nunito Sans Variable, sans-serif" font-size="12" fill="#3f5b3a" font-weight="700">М Китай-город</text><path d="M100 170 C150 170 170 140 222 126" stroke="#7a1f2b" stroke-width="2.5" stroke-dasharray="5 5" fill="none"/></svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">Сулико</span><span>© <span data-current-year>2026</span> · Демо-шаблон: ресторан, меню и цены вымышлены</span><a href="#top">Наверх ↑</a></div></footer>
+</body>
+</html>
