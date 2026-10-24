@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поток — задачи команды в одном месте</title>
+  <meta name="description" content="Поток — сервис для управления задачами команды: доски, спринты, отчёты и интеграции. Попробуйте бесплатно 14 дней.">
+  <meta name="theme-color" content="#1e1b4b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Поток — на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#6d5efc"/><path d="M8 20c4-8 8 4 16-6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>
+        Поток
+      </a>
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="#features">Возможности</a>
+        <a href="#how">Как это работает</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="#start">Войти</a>
+        <a class="btn btn--primary" href="#start">Попробовать</a>
+      </div>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="pill"><span class="dot"></span> Новое: автоматические отчёты по спринтам</p>
+          <h1>Задачи команды текут <span class="grad">без заторов</span></h1>
+          <p class="lead">Доски, спринты, сроки и обсуждения — в одном окне. Поток показывает, где работа застряла, ещё до того, как сорвётся дедлайн.</p>
+          <form class="signup" id="start" novalidate>
+            <label class="sr" for="email">Рабочий email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.ru" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Начать бесплатно</button>
+            <p class="signup__msg" role="status" aria-live="polite"></p>
+          </form>
+          <p class="note">14 дней бесплатно · без карты · до 10 участников навсегда бесплатно</p>
+        </div>
+
+        <div class="app" aria-label="Интерфейс Потока: доска задач" role="img">
+          <div class="app__bar"><i></i><i></i><i></i><span>Спринт 14 · Мобильное приложение</span></div>
+          <div class="app__body">
+            <aside class="app__side" aria-hidden="true">
+              <b></b><b class="on"></b><b></b><b></b><b></b>
+            </aside>
+            <div class="board">
+              <div class="col">
+                <h3>План <em>4</em></h3>
+                <div class="card"><span class="tag tag--a">Дизайн</span><p>Экран онбординга</p><div class="meta"><span class="ava a1"></span><small>2 дня</small></div></div>
+                <div class="card"><span class="tag tag--b">Backend</span><p>API уведомлений</p><div class="meta"><span class="ava a2"></span><small>3 дня</small></div></div>
+              </div>
+              <div class="col">
+                <h3>В работе <em>3</em></h3>
+                <div class="card card--hot"><span class="tag tag--c">Срочно</span><p>Оплата в приложении</p><div class="progress"><i style="width:68%"></i></div><div class="meta"><span class="ava a3"></span><small>сегодня</small></div></div>
+                <div class="card"><span class="tag tag--a">Дизайн</span><p>Тёмная тема</p><div class="progress"><i style="width:35%"></i></div></div>
+              </div>
+              <div class="col">
+                <h3>Готово <em>12</em></h3>
+                <div class="card card--done"><p>Push-уведомления</p><div class="meta"><span class="ava a2"></span><small>✓</small></div></div>
+                <div class="card card--done"><p>Авторизация по коду</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="float float--chart" aria-hidden="true">
+            <small>Скорость команды</small>
+            <svg viewBox="0 0 120 40"><path d="M0 34 L20 28 L40 30 L60 18 L80 20 L100 9 L120 6" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/></svg>
+            <b>+18%</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Цифры">
+      <div class="wrap strip__row">
+        <div><b>5 минут</b><span>на запуск первой доски</span></div>
+        <div><b>40+</b><span>готовых интеграций</span></div>
+        <div><b>99,9%</b><span>доступность по SLA</span></div>
+        <div><b>24/7</b><span>поддержка на русском</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <header class="head">
+          <p class="eyebrow">Возможности</p>
+          <h2>Всё, чтобы работа доходила до финиша</h2>
+          <p>Начните с доски, а когда понадобится — подключите спринты, отчёты и автоматизации. Ничего лишнего по умолчанию.</p>
+        </header>
+        <div class="features">
+          <article class="feature feature--wide">
+            <div class="feature__icon" aria-hidden="true">▦</div>
+            <h3>Доски и списки</h3>
+            <p>Канбан, список или календарь — один и тот же набор задач в удобном виде. Перетаскивайте карточки, задавайте WIP-лимиты и шаблоны задач.</p>
+            <div class="mini-board" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+          <article class="feature">
+            <div class="feature__icon" aria-hidden="true">⏱</div>
+            <h3>Спринты</h3>
+            <p>Планирование по оценкам, burndown и перенос незавершённого в один клик.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__icon" aria-hidden="true">⚡</div>
+            <h3>Автоматизации</h3>
+            <p>«Если задача в ревью больше двух дней — напомнить автору». Правила без кода.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__icon" aria-hidden="true">◎</div>
+            <h3>Отчёты</h3>
+            <p>Время цикла, узкие места и нагрузка на каждого — без ручных таблиц.</p>
+          </article>
+          <article class="feature feature--dark">
+            <div class="feature__icon" aria-hidden="true">🔒</div>
+            <h3>Безопасность для бизнеса</h3>
+            <p>SSO, роли и права на уровне проектов, журнал действий, хранение данных в России. Выгрузка всех данных в любой момент.</p>
+            <ul class="checks"><li>SAML / OIDC</li><li>Журнал аудита</li><li>Резервные копии каждый день</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="how">
+      <div class="wrap">
+        <header class="head">
+          <p class="eyebrow">Как это работает</p>
+          <h2>Три шага до первого спринта</h2>
+        </header>
+        <ol class="steps">
+          <li><span>01</span><h3>Импортируйте задачи</h3><p>Из Jira, Trello, Asana или CSV — с комментариями, вложениями и исполнителями.</p></li>
+          <li><span>02</span><h3>Пригласите команду</h3><p>По ссылке или через SSO. Роли настраиваются для каждого проекта отдельно.</p></li>
+          <li><span>03</span><h3>Запустите спринт</h3><p>Выберите задачи, оцените — Поток покажет, реальна ли нагрузка.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="integrations">
+      <div class="wrap integr">
+        <div>
+          <p class="eyebrow">Интеграции</p>
+          <h2>Работает с тем, чем вы уже пользуетесь</h2>
+          <p>Коммиты и pull request’ы двигают задачи сами, обсуждения приходят в рабочий мессенджер, а сроки — в календарь.</p>
+          <a class="link" href="#pricing">Смотреть все интеграции →</a>
+        </div>
+        <ul class="orbit" aria-label="Примеры интеграций">
+          <li>GitHub</li><li>GitLab</li><li>Telegram</li><li>Slack</li><li>Google Календарь</li><li>Figma</li><li>1С</li><li>Webhooks</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="pricing">
+      <div class="wrap">
+        <header class="head head--center">
+          <p class="eyebrow">Тарифы</p>
+          <h2>Платите за команду, а не за функции</h2>
+          <div class="toggle" role="group" aria-label="Период оплаты">
+            <button type="button" class="on" data-period="month" aria-pressed="true">Помесячно</button>
+            <button type="button" data-period="year" aria-pressed="false">За год <em>−20%</em></button>
+          </div>
+        </header>
+        <div class="plans">
+          <article class="plan">
+            <h3>Старт</h3>
+            <p class="plan__price"><b>0 ₽</b></p>
+            <p class="plan__desc">Для небольших команд и личных проектов</p>
+            <ul><li>До 10 участников</li><li>Безлимит досок</li><li>Интеграции с GitHub и Telegram</li></ul>
+            <a class="btn btn--line" href="#start">Начать</a>
+          </article>
+          <article class="plan plan--best">
+            <p class="badge">Популярный</p>
+            <h3>Команда</h3>
+            <p class="plan__price"><b data-price-month="490" data-price-year="390">490</b> ₽ <small>за участника в месяц</small></p>
+            <p class="plan__desc">Для продуктовых команд, которые работают спринтами</p>
+            <ul><li>Спринты и отчёты</li><li>Автоматизации — 1000 запусков</li><li>Гостевой доступ для клиентов</li><li>Приоритетная поддержка</li></ul>
+            <a class="btn btn--primary" href="#start">Попробовать 14 дней</a>
+          </article>
+          <article class="plan">
+            <h3>Бизнес</h3>
+            <p class="plan__price"><b data-price-month="890" data-price-year="710">890</b> ₽ <small>за участника в месяц</small></p>
+            <p class="plan__desc">Для компаний с требованиями к безопасности</p>
+            <ul><li>SSO и журнал аудита</li><li>Безлимит автоматизаций</li><li>SLA 99,9%</li><li>Персональный менеджер</li></ul>
+            <a class="btn btn--line" href="#start">Связаться с нами</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap faq">
+        <header class="head">
+          <p class="eyebrow">Вопросы</p>
+          <h2>Частые вопросы</h2>
+          <p>Не нашли ответ? Напишите нам — отвечаем в течение рабочего часа.</p>
+        </header>
+        <div class="faq__list">
+          <details open><summary>Что будет после пробного периода?</summary><p>Если не выберете платный тариф, команда автоматически перейдёт на «Старт». Данные сохранятся, просто отключатся платные функции.</p></details>
+          <details><summary>Можно ли перенести задачи из другого сервиса?</summary><p>Да, встроенный импорт поддерживает Jira, Trello, Asana и CSV. Комментарии, вложения и исполнители переносятся вместе с задачами.</p></details>
+          <details><summary>Где хранятся данные?</summary><p>В дата-центрах на территории России с ежедневным резервным копированием. Для тарифа «Бизнес» возможна установка на ваши серверы.</p></details>
+          <details><summary>Есть ли мобильное приложение?</summary><p>Да, для iOS и Android: уведомления, комментарии, смена статусов и быстрые задачи голосом.</p></details>
+          <details><summary>Как работает оплата за участника?</summary><p>Считаются только активные участники за месяц. Гости и наблюдатели бесплатны.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta__box">
+        <h2>Запустите первую доску за 5 минут</h2>
+        <p>Бесплатно для команд до 10 человек. Без карты и звонков менеджера.</p>
+        <a class="btn btn--light" href="#start">Создать рабочее пространство</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a class="logo logo--light" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#6d5efc"/><path d="M8 20c4-8 8 4 16-6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>Поток</a>
+        <p>Сервис управления задачами для команд разработки, дизайна и маркетинга.</p>
+      </div>
+      <nav aria-label="Продукт"><h3>Продукт</h3><a href="#features">Возможности</a><a href="#pricing">Тарифы</a><a href="#integrations">Интеграции</a></nav>
+      <nav aria-label="Компания"><h3>Компания</h3><a href="#faq">Вопросы</a><a href="#start">Контакты</a><a href="#start">Вакансии</a></nav>
+      <nav aria-label="Документы"><h3>Документы</h3><a href="#start">Условия</a><a href="#start">Конфиденциальность</a></nav>
+    </div>
+    <p class="wrap footer__copy">© <span data-year>2026</span> Поток · Демо-шаблон: компания, тарифы и цифры вымышлены</p>
+  </footer>
+</body>
+</html>
