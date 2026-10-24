@@ -1,6 +1,6 @@
 # Портфолио: шаблоны сайтов
 
-12 самостоятельных сайтов разных типов — от лендинга и интернет-магазина до блога, онлайн-записи и админ-панели. Каждый сайт лежит **в своей ветке** `site-*`, открывается без сборки и установки (HTML, CSS, JavaScript) и адаптирован под телефон.
+15 самостоятельных сайтов разных типов — от лендинга и интернет-магазина до блога, онлайн-записи и админ-панели. Каждый сайт лежит **в своей ветке** `site-*`, открывается без сборки и установки (HTML, CSS, JavaScript) и адаптирован под телефон.
 
 | | Сайт | Тип | Ветка | Онлайн |
 |---|---|---|---|---|
@@ -16,6 +16,9 @@
 | 10 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-cv-resume/screenshots/desktop.png" width="220" alt=""><br>**Андрей Соколов** | Резюме / CV (одностраничный сайт) | [`site-cv-resume`](https://github.com/legendageniy/projects/tree/site-cv-resume) | [открыть](https://raw.githack.com/legendageniy/projects/site-cv-resume/index.html) |
 | 11 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-marketing-agency/screenshots/desktop.png" width="220" alt=""><br>**Шум** | Сайт агентства (одностраничный, креативный) | [`site-marketing-agency`](https://github.com/legendageniy/projects/tree/site-marketing-agency) | [открыть](https://raw.githack.com/legendageniy/projects/site-marketing-agency/index.html) |
 | 12 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-medical-clinic/screenshots/desktop.png" width="220" alt=""><br>**Мера** | Сайт клиники с записью к врачу | [`site-medical-clinic`](https://github.com/legendageniy/projects/tree/site-medical-clinic) | [открыть](https://raw.githack.com/legendageniy/projects/site-medical-clinic/index.html) |
+| 13 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-yoga-studio/screenshots/desktop.png" width="220" alt=""><br>**Прана** | Сайт студии (одностраничный, запись на занятия) | [`site-yoga-studio`](https://github.com/legendageniy/projects/tree/site-yoga-studio) | [открыть](https://raw.githack.com/legendageniy/projects/site-yoga-studio/index.html) |
+| 14 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-auto-service/screenshots/desktop.png" width="220" alt=""><br>**Гараж 24** | Сайт услуг с калькулятором (одностраничный) | [`site-auto-service`](https://github.com/legendageniy/projects/tree/site-auto-service) | [открыть](https://raw.githack.com/legendageniy/projects/site-auto-service/index.html) |
+| 15 | <img src="https://raw.githubusercontent.com/legendageniy/projects/site-travel-agency/screenshots/desktop.png" width="220" alt=""><br>**Горизонт** | Каталог туров с бронированием (многостраничный) | [`site-travel-agency`](https://github.com/legendageniy/projects/tree/site-travel-agency) | [открыть](https://raw.githack.com/legendageniy/projects/site-travel-agency/index.html) |
 
 ## Как посмотреть
 
