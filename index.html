@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Гараж 24 — автосервис: ремонт и ТО. Расчёт стоимости онлайн</title>
+  <meta name="description" content="Техобслуживание, диагностика, ремонт ходовой и двигателя, шиномонтаж. Калькулятор стоимости, запись онлайн и статус ремонта по номеру заказа.">
+  <meta name="theme-color" content="#16181b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><span class="logo__mark">24</span>ГАРАЖ</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#calc">Расчёт</a><a href="#services">Услуги</a><a href="#status">Статус ремонта</a><a href="#book">Запись</a></nav>
+      <a class="phone" href="tel:+74950000000">+7 495 000-00-00</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="tag">Работаем 24/7 · Гарантия 12 месяцев</p>
+          <h1>Ремонт без <span>сюрпризов</span> в счёте</h1>
+          <p class="lead">Согласовываем каждую работу до начала. Показываем старые запчасти. Цена в заказ-наряде не меняется без вашего «да».</p>
+          <div class="actions"><a class="btn" href="#calc">Рассчитать стоимость</a><a class="btn btn--ghost" href="#book">Записаться</a></div>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 460 300"><rect x="0" y="230" width="460" height="10" fill="#2a2d32"/><path d="M60 200 L95 140 Q110 115 140 112 L300 108 Q330 108 350 130 L395 170 Q420 175 425 200 L425 222 L50 222 Z" fill="#ff6a13"/><path d="M130 140 L150 122 L230 120 L230 150 L118 152 Z M245 120 L300 119 Q318 120 330 136 L338 150 L245 150 Z" fill="#9fb4c7"/><circle cx="130" cy="222" r="34" fill="#16181b"/><circle cx="130" cy="222" r="16" fill="#8a9099"/><circle cx="350" cy="222" r="34" fill="#16181b"/><circle cx="350" cy="222" r="16" fill="#8a9099"/><rect x="380" y="180" width="30" height="10" rx="3" fill="#ffd27a"/><path d="M400 40 a30 30 0 1 0 0.1 0" fill="none" stroke="#3a3f47" stroke-width="10" stroke-dasharray="12 8"/></svg>
+        </div>
+      </div>
+      <div class="wrap strip"><div><b>15 мин</b>диагностика ходовой бесплатно</div><div><b>12 мес</b>гарантия на работы</div><div><b>8 постов</b>без очереди в выходные</div><div><b>Фото и видео</b>каждого этапа в мессенджер</div></div>
+    </section>
+
+    <section class="section" id="calc">
+      <div class="wrap calc">
+        <div>
+          <h2>Калькулятор</h2>
+          <p class="muted">Ориентировочная стоимость работ без запчастей. Точную сумму назовём после диагностики.</p>
+          <form id="calc-form" class="calc__form">
+            <fieldset><legend>Класс автомобиля</legend><div class="seg">
+              <label><input type="radio" name="cls" value="1" checked><span>Седан / хэтч</span></label>
+              <label><input type="radio" name="cls" value="1.25"><span>Кроссовер</span></label>
+              <label><input type="radio" name="cls" value="1.5"><span>Внедорожник</span></label>
+              <label><input type="radio" name="cls" value="1.8"><span>Премиум</span></label></div></fieldset>
+            <fieldset><legend>Работы</legend><div class="works" id="works"></div></fieldset>
+          </form>
+        </div>
+        <aside class="receipt" aria-live="polite">
+          <h3>Предварительный расчёт</h3>
+          <ul id="r-lines"></ul>
+          <p class="r-time" id="r-time"></p>
+          <p class="r-total"><span>Итого</span><b id="r-total">0 ₽</b></p>
+          <a class="btn btn--wide" href="#book" id="r-book">Записаться с этим расчётом</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="services">
+      <div class="wrap">
+        <h2>Услуги</h2>
+        <div class="services">
+          <article><h3>ТО по регламенту</h3><p>Масло, фильтры, свечи, проверка 40 узлов по чек-листу производителя. Сохраняем гарантию дилера.</p></article>
+          <article><h3>Диагностика</h3><p>Компьютерная диагностика всех блоков, эндоскопия цилиндров, проверка ходовой на подъёмнике.</p></article>
+          <article><h3>Ходовая и тормоза</h3><p>Замена амортизаторов, рычагов, колодок и дисков, развал-схождение на 3D-стенде.</p></article>
+          <article><h3>Двигатель и КПП</h3><p>Ремонт ДВС, замена ГРМ, обслуживание вариаторов и АКПП.</p></article>
+          <article><h3>Шиномонтаж</h3><p>Сезонная замена, балансировка, хранение шин — 3 000 ₽ за сезон.</p></article>
+          <article><h3>Электрика</h3><p>Поиск неисправностей, установка сигнализаций, камер и парктроников.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <div class="wrap status">
+        <div><h2>Статус ремонта</h2><p class="muted">Введите номер заказ-наряда — он есть в SMS. Для примера: <button type="button" class="link" data-try="G24-1048">G24-1048</button> или <button type="button" class="link" data-try="G24-2210">G24-2210</button>.</p>
+          <form class="track" id="track"><label class="sr" for="order">Номер заказа</label><input id="order" placeholder="G24-0000" autocomplete="off"><button class="btn" type="submit">Проверить</button></form>
+          <p class="track__msg" id="track-msg" role="status"></p></div>
+        <ol class="progress" id="progress" aria-label="Этапы ремонта"><li>Приняли</li><li>Диагностика</li><li>Согласование</li><li>Ремонт</li><li>Готово</li></ol>
+      </div>
+    </section>
+
+    <section class="section section--orange" id="book">
+      <div class="wrap book">
+        <div><h2>Запись на сервис</h2><p>Перезвоним в течение 15 минут и подтвердим время. Ночью принимаем машины на эвакуаторе.</p><p class="calc-note" id="calc-note"></p></div>
+        <form class="form" id="book-form" novalidate>
+          <div class="row"><div class="field"><label for="f-car">Марка и модель</label><input id="f-car" name="car" placeholder="Например, Kia Rio"></div><div class="field"><label for="f-year">Год</label><input id="f-year" name="year" inputmode="numeric" maxlength="4" placeholder="2018"></div></div>
+          <div class="row"><div class="field"><label for="f-date">Дата</label><input id="f-date" name="date" type="date"></div><div class="field"><label for="f-time">Время</label><select id="f-time" name="time"><option>09:00</option><option>11:00</option><option>13:00</option><option>15:00</option><option>17:00</option><option>19:00</option><option>21:00</option></select></div></div>
+          <div class="row"><div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="name"></div><div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></div></div>
+          <p class="form__msg" role="status"></p>
+          <button class="btn btn--dark" type="submit">Записаться</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top"><span class="logo__mark">24</span>ГАРАЖ</a><p>Ул. Моторная, 00, стр. 2 · круглосуточно</p><p>© <span data-current-year>2026</span> · Демо-шаблон: автосервис, цены и номера заказов вымышлены</p></div></footer>
+</body>
+</html>
