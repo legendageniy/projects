@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Улей — коворкинг в центре. Места, переговорные, офисы</title>
+  <meta name="description" content="Коворкинг с фиксированными и гибкими местами, переговорными и кабинетами. Схема этажа и бронирование онлайн.">
+  <meta name="theme-color" content="#1f1f24">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l14 8v16l-14 8-14-8V11z" fill="#ffc300"/><path d="M20 12l7 4v8l-7 4-7-4v-8z" fill="#1f1f24"/></svg>улей</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#map">Схема</a><a href="#plans">Тарифы</a><a href="#rooms">Переговорные</a><a href="#perks">Удобства</a></nav>
+      <a class="btn header__cta" href="#map">Выбрать место</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <h1>Работайте рядом с&nbsp;<span>теми, кто тоже работает</span></h1>
+          <p class="lead">Коворкинг на 120 мест у метро «Белорусская»: тихие зоны, 6 переговорных, кухня с хорошим кофе и сообщество из 300 резидентов.</p>
+          <div class="hero__cta"><a class="btn" href="#map">Посмотреть свободные места</a><a class="btn btn--ghost" href="#plans">Тарифы</a></div>
+        </div>
+        <ul class="hero__stats"><li><b>24/7</b>доступ для резидентов</li><li><b>1 Гбит/с</b>интернет и резервный канал</li><li><b>6</b>переговорных на 4–20 человек</li><li><b>от 590 ₽</b>за день</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="wrap">
+        <header class="head"><h2>Схема этажа</h2>
+          <div class="when"><label>Дата <input type="date" id="m-date"></label><label>Время <select id="m-slot"><option value="am">9:00–14:00</option><option value="pm">14:00–20:00</option><option value="day">Весь день</option></select></label></div>
+        </header>
+        <div class="floor">
+          <svg viewBox="0 0 900 520" id="plan" role="group" aria-label="План этажа: выберите свободное место">
+            <rect x="10" y="10" width="880" height="500" rx="18" fill="#f4f1ea" stroke="#1f1f24" stroke-width="3"/>
+            <g class="zone-label"><text x="40" y="48">Open space</text><text x="560" y="48">Тихая зона</text><text x="40" y="330">Переговорные</text><text x="560" y="330">Кухня</text></g>
+            <g id="desks"></g>
+            <g class="room" data-room="r1"><rect x="40" y="350" width="150" height="130" rx="10"/><text x="115" y="420">«Соты» · 6</text></g>
+            <g class="room" data-room="r2"><rect x="210" y="350" width="150" height="130" rx="10"/><text x="285" y="420">«Пасека» · 10</text></g>
+            <g class="room" data-room="r3"><rect x="380" y="350" width="140" height="130" rx="10"/><text x="450" y="420">«Рой» · 4</text></g>
+            <rect class="kitchen" x="560" y="350" width="300" height="130" rx="10"/><text class="kt" x="710" y="420">☕ Кофе и обеды</text>
+            <path d="M530 70v240" stroke="#d9d3c4" stroke-width="3" stroke-dasharray="8 8"/>
+          </svg>
+          <aside class="pick" aria-live="polite">
+            <p class="legend"><span class="free">Свободно</span><span class="busy">Занято</span><span class="sel">Выбрано</span></p>
+            <div id="pick-info"><p class="muted">Нажмите на свободное место или переговорную на схеме.</p></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="plans">
+      <div class="wrap">
+        <header class="head"><h2>Тарифы</h2></header>
+        <div class="plans">
+          <article><h3>Гостевой день</h3><p class="price">590 ₽</p><p>Любое свободное место с 9:00 до 20:00, кофе и чай</p></article>
+          <article><h3>Гибкое место</h3><p class="price">9 900 ₽<small>/мес</small></p><p>Любое свободное место 24/7, 4 часа переговорных</p></article>
+          <article class="best"><p class="flag">Чаще выбирают</p><h3>Фиксированное</h3><p class="price">15 900 ₽<small>/мес</small></p><p>Своё место, тумба с замком, 8 часов переговорных, юридический адрес</p></article>
+          <article><h3>Кабинет на 4</h3><p class="price">72 000 ₽<small>/мес</small></p><p>Закрытый кабинет с окном, мебель и уборка включены</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rooms">
+      <div class="wrap rooms">
+        <div><h2>Переговорные по часам</h2><p class="muted">1 500 ₽ в час, резидентам — из пакета часов. Экран, камера и доска в каждой.</p>
+          <label class="room-select">Переговорная <select id="r-room"><option value="r1">«Соты» — до 6 человек</option><option value="r2">«Пасека» — до 10 человек</option><option value="r3">«Рой» — до 4 человек</option></select></label>
+          <p class="hint">Выберите один или несколько часов подряд.</p></div>
+        <div>
+          <div class="hours" id="hours" role="group" aria-label="Свободные часы"></div>
+          <p class="r-sum" id="r-sum" aria-live="polite"></p>
+          <button class="btn" type="button" id="r-book" disabled>Забронировать</button>
+          <p class="r-msg" role="status" id="r-msg"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--honey" id="perks">
+      <div class="wrap">
+        <h2>Что включено</h2>
+        <ul class="perks"><li>Эргономичные кресла и мониторы на 30 местах</li><li>Телефонные будки для созвонов</li><li>Кухня, кофемашина, фрукты по утрам</li><li>Принтер, сканер, шкафчики</li><li>Душ и парковка для велосипедов</li><li>Мероприятия и завтраки резидентов</li></ul>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">улей</span><p>Москва, ул. Лесная, 00, 4 этаж · <a href="tel:+74950000000">+7 495 000-00-00</a></p><p>© <span data-current-year>2026</span> · Демо-шаблон: коворкинг, цены и занятость вымышлены</p></div></footer>
+</body>
+</html>
