@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вера Лис — пейзажная иллюстрация и принты</title>
+  <meta name="description" content="Портфолио иллюстратора Веры Лис: серии пейзажей России, авторские принты и работы на заказ.">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">Вера Лис</a>
+      <nav class="nav" id="nav" aria-label="Разделы">
+        <a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#prints">Принты</a><a href="#contact">Заказать</a>
+      </nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__media"><img src="works/altai-dawn.svg" alt="«Алтай. Рассвет» — горные хребты в лиловом утреннем свете" width="1600" height="1067" fetchpriority="high"></div>
+      <div class="wrap hero__text">
+        <p class="kicker">Пейзажная иллюстрация · 2019—2026</p>
+        <h1>Тишина <em>больших</em> пространств</h1>
+        <p>Рисую места, где горизонт важнее деталей: горы, северное море, туманные леса и города на рассвете.</p>
+        <a class="link-arrow" href="#works">Смотреть работы</a>
+      </div>
+    </section>
+
+    <section class="section" id="works">
+      <div class="wrap">
+        <header class="head">
+          <h2>Работы</h2>
+          <div class="filters" role="group" aria-label="Серии">
+            <button type="button" aria-pressed="true" data-cat="all">Все</button>
+            <button type="button" aria-pressed="false" data-cat="mountains">Горы</button>
+            <button type="button" aria-pressed="false" data-cat="sea">Море</button>
+            <button type="button" aria-pressed="false" data-cat="forest">Лес</button>
+            <button type="button" aria-pressed="false" data-cat="city">Город</button>
+            <button type="button" aria-pressed="false" data-cat="architecture">Архитектура</button>
+            <button type="button" aria-pressed="false" data-cat="dunes">Пустыня</button>
+          </div>
+        </header>
+        <ul class="gallery" id="gallery"></ul>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="wrap about__grid">
+        <div class="about__portrait" aria-hidden="true"><span>ВЛ</span></div>
+        <div>
+          <h2>Обо мне</h2>
+          <p class="big">Я иллюстратор из Петрозаводска. Езжу туда, где мало людей и много неба, делаю этюды, а потом в мастерской свожу пейзаж к нескольким цветам и линиям.</p>
+          <p>Работаю для издательств, брендов и частных коллекционеров. Иллюстрации есть на обложках книг о путешествиях, в интерьерах гостиниц и на упаковке чая.</p>
+          <dl class="stats"><div><dt>6</dt><dd>серий</dd></div><div><dt>140+</dt><dd>работ</dd></div><div><dt>11</dt><dd>выставок</dd></div></dl>
+        </div>
+      </div>
+      <div class="wrap process">
+        <h3>Как рождается работа</h3>
+        <ol><li><b>Экспедиция</b>Фото, наброски, заметки о цвете в разное время суток.</li><li><b>Эскиз</b>Ищу композицию и 4–6 главных цветов.</li><li><b>Чистовик</b>Векторная иллюстрация с ручной текстурой.</li><li><b>Печать</b>Пигментные чернила на хлопковой бумаге 310 г/м².</li></ol>
+      </div>
+    </section>
+
+    <section class="section prints" id="prints">
+      <div class="wrap">
+        <header class="head"><h2>Принты</h2><p>Тираж каждой работы ограничен 50 экземплярами. Подпись и номер на обороте.</p></header>
+        <div class="formats">
+          <article><h3>A3</h3><p class="size">29,7 × 42 см</p><p class="price">4 900 ₽</p></article>
+          <article class="formats__best"><h3>A2</h3><p class="size">42 × 59,4 см</p><p class="price">7 900 ₽</p><p class="hint">Самый популярный</p></article>
+          <article><h3>A1</h3><p class="size">59,4 × 84 см</p><p class="price">12 900 ₽</p></article>
+        </div>
+        <p class="prints__note">Рама — +2 500 ₽ (дуб или чёрный алюминий). Доставка по России в тубусе или коробке с защитой углов.</p>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap contact__grid">
+        <div>
+          <h2>Заказать принт или иллюстрацию</h2>
+          <p>Отвечаю в течение двух дней. Для заказных работ напишите, где будет использоваться иллюстрация и к какому сроку она нужна.</p>
+          <p class="mail"><a href="mailto:hello@veralis.example">hello@veralis.example</a></p>
+        </div>
+        <form class="form" id="order" novalidate>
+          <div class="field"><label for="c-name">Имя</label><input id="c-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="c-type">Что интересует</label><select id="c-type" name="type"><option value="print">Принт</option><option value="commission">Иллюстрация на заказ</option><option value="license">Лицензия на использование</option></select></div>
+          <div class="field" id="work-field"><label for="c-work">Работа</label><select id="c-work" name="work"></select></div>
+          <div class="field"><label for="c-msg">Сообщение</label><textarea id="c-msg" name="message" rows="4" required></textarea></div>
+          <p class="form__err" role="alert"></p>
+          <button class="btn" type="submit">Отправить</button>
+          <p class="form__ok" role="status" hidden>Спасибо! Это демо-сайт: письмо не отправлено.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer__row"><span>© <span data-current-year>2026</span> Вера Лис</span><span>Демо-шаблон: автор и работы вымышлены, иллюстрации сгенерированы для примера</span><a href="#top">Наверх ↑</a></div></footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр работы">
+    <button class="lb__close" type="button" data-close aria-label="Закрыть">✕</button>
+    <button class="lb__nav lb__prev" type="button" data-step="-1" aria-label="Предыдущая работа">←</button>
+    <figure><img id="lb-img" alt=""><figcaption><b id="lb-title"></b><span id="lb-meta"></span><a href="#contact" data-close class="lb__order">Заказать принт</a></figcaption></figure>
+    <button class="lb__nav lb__next" type="button" data-step="1" aria-label="Следующая работа">→</button>
+  </dialog>
+</body>
+</html>
