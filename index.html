@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тёплый дом — фонд помощи одиноким пожилым людям</title>
+  <meta name="description" content="Помогаем одиноким пожилым людям: продукты, лекарства, ремонт и живое общение. Пожертвовать, стать волонтёром, отчёты о расходах.">
+  <meta name="theme-color" content="#e86a33">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 4 17v19h32V17z" fill="#e86a33"/><path d="M20 30c-6-4-9-7-9-11a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4-3 7-9 11z" fill="#fff7ee"/></svg>Тёплый дом</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#help">Как помогаем</a><a href="#campaigns">Сборы</a><a href="#reports">Отчёты</a><a href="#volunteer">Волонтёрам</a></nav>
+      <a class="btn header__cta" href="#donate">Помочь</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <h1>Чтобы никто не оставался <em>один</em></h1>
+          <p class="lead">Мы помогаем 1 240 одиноким пожилым людям в 9 городах: привозим продукты и лекарства, делаем ремонт, звоним и приходим в гости.</p>
+          <p class="hand">«Спасибо, что вы помните про нас» — <span>Нина Петровна, 86 лет</span></p>
+        </div>
+        <form class="donate" id="donate" novalidate aria-labelledby="donate-title">
+          <h2 id="donate-title">Пожертвование</h2>
+          <div class="seg" role="radiogroup" aria-label="Тип пожертвования">
+            <label><input type="radio" name="type" value="month" checked><span>Ежемесячно</span></label>
+            <label><input type="radio" name="type" value="once"><span>Разово</span></label>
+          </div>
+          <div class="amounts" role="radiogroup" aria-label="Сумма">
+            <label><input type="radio" name="sum" value="300"><span>300 ₽</span></label>
+            <label><input type="radio" name="sum" value="500" checked><span>500 ₽</span></label>
+            <label><input type="radio" name="sum" value="1000"><span>1 000 ₽</span></label>
+            <label><input type="radio" name="sum" value="3000"><span>3 000 ₽</span></label>
+          </div>
+          <label class="sr" for="custom">Другая сумма</label><input id="custom" name="custom" inputmode="numeric" placeholder="Другая сумма, ₽">
+          <p class="impact" id="impact" aria-live="polite"></p>
+          <label class="sr" for="d-email">Email для чека</label><input id="d-email" name="email" type="email" placeholder="Email для чека" autocomplete="email">
+          <label class="check"><input type="checkbox" name="offer"> Принимаю условия <a href="#reports">публичной оферты</a></label>
+          <p class="err" role="alert"></p>
+          <button class="btn btn--wide" type="submit" id="d-btn">Помочь</button>
+          <p class="safe">Платёж защищён · Отменить ежемесячную помощь можно в любой момент</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="help">
+      <div class="wrap">
+        <h2>Как мы помогаем</h2>
+        <div class="help">
+          <article><span aria-hidden="true">🧺</span><h3>Продукты и лекарства</h3><p>Каждую неделю волонтёры привозят продуктовые наборы и лекарства по рецептам.</p></article>
+          <article><span aria-hidden="true">🔨</span><h3>Ремонт и быт</h3><p>Меняем проводку, ставим поручни в ванной, чиним окна и сантехнику.</p></article>
+          <article><span aria-hidden="true">☎</span><h3>Звонки и визиты</h3><p>Регулярные разговоры по телефону и прогулки — против одиночества нет лекарства лучше.</p></article>
+          <article><span aria-hidden="true">🩺</span><h3>Медицина</h3><p>Сопровождаем к врачу, оплачиваем обследования и слуховые аппараты.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="campaigns">
+      <div class="wrap">
+        <h2>Открытые сборы</h2>
+        <div class="campaigns" id="camp-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="reports">
+      <div class="wrap">
+        <header class="head"><h2>Куда идут деньги</h2><label>Месяц <select id="month"></select></label></header>
+        <div class="report">
+          <div class="donut" id="donut" role="img" aria-label="Структура расходов"></div>
+          <table class="table"><caption class="sr">Расходы фонда за выбранный месяц</caption><thead><tr><th scope="col">Статья</th><th scope="col">Сумма</th><th scope="col">Доля</th></tr></thead><tbody id="rows"></tbody><tfoot><tr><th scope="row">Итого</th><td id="total" colspan="2"></td></tr></tfoot></table>
+        </div>
+        <p class="note">Административные расходы фонда покрываются отдельным грантом — 100% пожертвований идут на помощь подопечным. <mark>[Реквизиты фонда, ОГРН, ИНН и годовые отчёты]</mark></p>
+      </div>
+    </section>
+
+    <section class="section section--blue" id="volunteer">
+      <div class="wrap vol">
+        <div><h2>Станьте волонтёром</h2><p>Даже два часа в месяц — это ощутимая помощь. Обучение и первые визиты — вместе с координатором.</p></div>
+        <form class="vform" id="vform" novalidate>
+          <div class="field"><label for="v-name">Имя</label><input id="v-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="v-city">Город</label><select id="v-city" name="city"><option>Москва</option><option>Санкт-Петербург</option><option>Казань</option><option>Нижний Новгород</option><option>Екатеринбург</option><option>Другой</option></select></div>
+          <fieldset><legend>Чем хотите помогать</legend><div class="tags">
+            <label><input type="checkbox" name="how" value="visits"><span>Визиты</span></label><label><input type="checkbox" name="how" value="calls"><span>Звонки</span></label><label><input type="checkbox" name="how" value="car"><span>Есть машина</span></label><label><input type="checkbox" name="how" value="repair"><span>Ремонт</span></label></div></fieldset>
+          <div class="field"><label for="v-phone">Телефон</label><input id="v-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <p class="vmsg" role="status"></p>
+          <button class="btn btn--light" type="submit">Отправить анкету</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">Тёплый дом</span><p>© <span data-current-year>2026</span> · Демо-шаблон: фонд, подопечные, сборы и отчёты вымышлены</p></div></footer>
+</body>
+</html>
