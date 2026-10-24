@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Код+ — онлайн-школа программирования</title>
+  <meta name="description" content="Курсы программирования с наставником: веб-разработка, Python, анализ данных и тестирование. Практика на реальных проектах и помощь с трудоустройством.">
+  <meta name="theme-color" content="#110d2b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">код<span>+</span></a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#courses">Курсы</a><a href="#quiz">Подбор курса</a><a href="#program">Программа</a><a href="#price">Стоимость</a><a href="#faq">Вопросы</a></nav>
+      <a class="btn btn--lime header__cta" href="#signup">Бесплатный урок</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="pill">Набор на поток 1 декабря · осталось <b id="seats">14</b> мест</p>
+          <h1>Научитесь программировать <mark>за 9 месяцев</mark></h1>
+          <p class="lead">Учитесь на реальных проектах с наставником-практиком. Код-ревью каждой домашки, карьерный трек и портфолио из 8 проектов.</p>
+          <div class="actions"><a class="btn btn--lime" href="#signup">Начать бесплатно</a><a class="btn btn--ghost" href="#quiz">Подобрать курс →</a></div>
+          <ul class="hero__stats"><li><b>4 200+</b>выпускников</li><li><b>1:8</b>наставник на группу</li><li><b>2 ч</b>в среднем на проверку ДЗ</li></ul>
+        </div>
+        <div class="editor" aria-label="Пример кода, который студенты пишут на первом месяце" role="img">
+          <div class="editor__bar"><i></i><i></i><i></i><span>first_project.py</span></div>
+          <pre class="editor__code"><code id="typed"></code><span class="caret" aria-hidden="true"></span></pre>
+          <div class="editor__out"><span>▶ Результат</span><p id="output">&nbsp;</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="wrap">
+        <header class="head"><h2>Курсы</h2><p>Все программы — с нуля. Выберите направление и формат.</p></header>
+        <div class="filters" role="group" aria-label="Фильтр курсов">
+          <div class="seg" data-key="dir"><button aria-pressed="true" data-val="all">Все</button><button aria-pressed="false" data-val="web">Веб</button><button aria-pressed="false" data-val="data">Данные</button><button aria-pressed="false" data-val="qa">Тестирование</button></div>
+          <div class="seg" data-key="level"><button aria-pressed="true" data-val="all">Любой уровень</button><button aria-pressed="false" data-val="zero">С нуля</button><button aria-pressed="false" data-val="up">Для практиков</button></div>
+        </div>
+        <div class="courses" id="course-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--violet" id="quiz">
+      <div class="wrap quiz">
+        <div><h2>Не знаете, с чего начать?</h2><p>Три вопроса — и мы предложим подходящую программу. Без регистрации.</p></div>
+        <form class="quiz__card" id="quiz-form" aria-live="polite">
+          <div class="quiz__progress"><span id="q-step">Вопрос 1 из 3</span><div><i id="q-bar"></i></div></div>
+          <fieldset class="q" data-q="0"><legend>Что вам интереснее?</legend>
+            <label><input type="radio" name="q0" value="web"> Делать сайты и приложения, которые видно</label>
+            <label><input type="radio" name="q0" value="data"> Искать закономерности в цифрах</label>
+            <label><input type="radio" name="q0" value="qa"> Находить ошибки и проверять качество</label></fieldset>
+          <fieldset class="q" data-q="1" hidden><legend>Сколько времени готовы уделять?</legend>
+            <label><input type="radio" name="q1" value="5"> До 5 часов в неделю</label>
+            <label><input type="radio" name="q1" value="10"> 8–10 часов</label>
+            <label><input type="radio" name="q1" value="15"> 15 часов и больше</label></fieldset>
+          <fieldset class="q" data-q="2" hidden><legend>Есть опыт в программировании?</legend>
+            <label><input type="radio" name="q2" value="zero"> Нет, совсем с нуля</label>
+            <label><input type="radio" name="q2" value="some"> Пробовал(а) сам(а)</label>
+            <label><input type="radio" name="q2" value="up"> Да, работаю с кодом</label></fieldset>
+          <div class="q-result" id="q-result" hidden></div>
+          <div class="quiz__nav"><button type="button" class="btn btn--ghost-l" id="q-back" disabled>Назад</button><button type="button" class="btn btn--lime" id="q-next" disabled>Далее</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="wrap program">
+        <header class="head"><h2>Программа «Веб-разработчик»</h2><p>9 месяцев, 6 модулей, 8 проектов в портфолио.</p></header>
+        <div class="accordion" id="accordion">
+          <details open><summary><span class="m">01</span>Основы веба <small>4 недели</small></summary><ul><li>HTML и семантика, CSS, адаптивная вёрстка</li><li>Git и GitHub, работа в терминале</li><li>Проект: лендинг по макету из Figma</li></ul></details>
+          <details><summary><span class="m">02</span>JavaScript <small>6 недель</small></summary><ul><li>Синтаксис, функции, объекты, асинхронность</li><li>DOM, события, работа с API</li><li>Проект: приложение-трекер привычек</li></ul></details>
+          <details><summary><span class="m">03</span>React и TypeScript <small>8 недель</small></summary><ul><li>Компоненты, состояние, хуки</li><li>Маршрутизация, формы, типизация</li><li>Проект: интернет-магазин с корзиной</li></ul></details>
+          <details><summary><span class="m">04</span>Backend на Node.js <small>8 недель</small></summary><ul><li>HTTP, REST, Express, авторизация</li><li>PostgreSQL и ORM</li><li>Проект: API для магазина</li></ul></details>
+          <details><summary><span class="m">05</span>Командный проект <small>6 недель</small></summary><ul><li>Работа в команде по Scrum</li><li>Код-ревью, CI/CD, деплой</li><li>Проект для реального заказчика</li></ul></details>
+          <details><summary><span class="m">06</span>Карьерный трек <small>4 недели</small></summary><ul><li>Резюме и портфолио на GitHub</li><li>Тренировочные собеседования</li><li>Помощь с поиском первой работы</li></ul></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="price">
+      <div class="wrap">
+        <header class="head"><h2>Стоимость</h2><p>Можно оплатить сразу со скидкой или частями без переплаты.</p></header>
+        <div class="pay-toggle" role="radiogroup" aria-label="Способ оплаты">
+          <label><input type="radio" name="pay" value="full" checked><span>Сразу −15%</span></label>
+          <label><input type="radio" name="pay" value="month"><span>Рассрочка 18 мес</span></label>
+        </div>
+        <div class="tariffs">
+          <article class="tariff"><h3>Самостоятельный</h3><p class="t-price" data-full="68 000" data-month="4 444">68 000 ₽</p><p class="t-unit">единоразово</p><ul><li>Все уроки и задания</li><li>Автопроверка кода</li><li>Чат сообщества</li></ul><a class="btn btn--ghost-l" href="#signup">Выбрать</a></article>
+          <article class="tariff tariff--best"><p class="flag">Выбирают чаще</p><h3>С наставником</h3><p class="t-price" data-full="119 000" data-month="7 778">119 000 ₽</p><p class="t-unit">единоразово</p><ul><li>Всё из «Самостоятельного»</li><li>Код-ревью каждой работы</li><li>Еженедельные созвоны с группой</li><li>Карьерный трек</li></ul><a class="btn btn--lime" href="#signup">Выбрать</a></article>
+          <article class="tariff"><h3>Персональный</h3><p class="t-price" data-full="189 000" data-month="12 353">189 000 ₽</p><p class="t-unit">единоразово</p><ul><li>Всё из «С наставником»</li><li>Личные встречи 1:1 каждую неделю</li><li>Гибкий график обучения</li></ul><a class="btn btn--ghost-l" href="#signup">Выбрать</a></article>
+        </div>
+        <p class="refund">Возврат денег в течение 14 дней с начала обучения — без объяснения причин.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap faq">
+        <h2>Вопросы</h2>
+        <div class="accordion">
+          <details><summary>Подойдёт ли курс, если я гуманитарий?</summary><p>Да. Математика на уровне школы нужна только в направлении «Данные». Больше половины наших студентов пришли из непрофильных профессий.</p></details>
+          <details><summary>Что если не успеваю?</summary><p>Можно взять академический отпуск до 3 месяцев или перейти в следующий поток без доплаты.</p></details>
+          <details><summary>Гарантируете ли вы трудоустройство?</summary><p>Гарантировать найм не может никто — решение принимает работодатель. Мы помогаем с резюме, портфолио и подготовкой к собеседованиям до тех пор, пока вы ищете работу.</p></details>
+          <details><summary>Какой документ я получу?</summary><p>Сертификат о прохождении курса и портфолио проектов. Если у школы есть образовательная лицензия, выдаётся диплом о профессиональной переподготовке.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--lime" id="signup">
+      <div class="wrap signup">
+        <div><h2>Первый урок — бесплатно</h2><p>Оставьте контакты — пришлём доступ к вводному модулю и позвоним, чтобы ответить на вопросы.</p></div>
+        <form class="form" id="form" novalidate>
+          <label class="sr" for="f-name">Имя</label><input id="f-name" name="name" placeholder="Имя" autocomplete="name">
+          <label class="sr" for="f-contact">Телефон или Telegram</label><input id="f-contact" name="contact" placeholder="Телефон или @telegram">
+          <label class="check"><input type="checkbox" name="consent"> Согласен(на) на обработку персональных данных</label>
+          <button class="btn btn--dark" type="submit">Получить урок</button>
+          <p class="form__msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top">код<span>+</span></a><p>© <span data-current-year>2026</span> Код+ · Демо-шаблон: школа, курсы, цифры и цены вымышлены</p></div></footer>
+</body>
+</html>
