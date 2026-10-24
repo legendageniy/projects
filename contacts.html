@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты — Меридиан</title>
+  <meta name="description" content="Телефон, адрес офиса и форма заявки на встречу с партнёром.">
+  <meta name="theme-color" content="#0b2341">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Меридиан — на главную"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 2v32M2 18h32" stroke="currentColor" stroke-width="1.2"/><ellipse cx="18" cy="18" rx="7" ry="16" fill="none" stroke="#0e8a87" stroke-width="2"/></svg><span>Меридиан<small>консалтинг</small></span></a>
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="services.html">Услуги</a>
+        <a href="about.html">О компании</a>
+        <a href="index.html#cases">Проекты</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <a class="btn btn--teal header__cta" href="contacts.html#form">Обсудить задачу</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a> / <span>Контакты</span></nav><h1>Контакты</h1><p class="lead">Расскажите о задаче — партнёр свяжется с вами в течение рабочего дня. Первая встреча бесплатна и ни к чему не обязывает.</p></div></section>
+    <section class="section"><div class="wrap contacts">
+      <div class="contacts__info">
+        <dl>
+          <div><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 495 000-00-00</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:hello@meridian.example">hello@meridian.example</a></dd></div>
+          <div><dt>Офис</dt><dd>Москва, Пресненская наб., 00, башня «Север», 21 этаж</dd></div>
+          <div><dt>Часы</dt><dd>Пн–Пт, 9:00–19:00</dd></div>
+        </dl>
+        <div class="map" role="img" aria-label="Схема проезда к офису">
+          <svg viewBox="0 0 400 260" aria-hidden="true"><rect width="400" height="260" fill="#e9e4d8"/><path d="M0 170 C80 150 140 210 220 190 S340 120 400 140 V260 H0Z" fill="#bcd3dc"/><g stroke="#fff" stroke-width="10" fill="none"><path d="M40 0 L120 260"/><path d="M0 80 H400"/><path d="M260 0 L300 260"/></g><g stroke="#fff" stroke-width="4"><path d="M0 40 H400M180 0V260M340 0V160"/></g><circle cx="212" cy="96" r="14" fill="#0e8a87"/><circle cx="212" cy="96" r="5" fill="#fff"/><text x="232" y="92" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0b2341">Меридиан</text><text x="232" y="108" font-family="IBM Plex Sans" font-size="11" fill="#4b5563">5 мин от метро</text></svg>
+        </div>
+      </div>
+      <form class="form" id="form" novalidate>
+        <h2>Заявка на встречу</h2>
+        <div class="field"><label for="f-name">Имя и фамилия</label><input id="f-name" name="name" autocomplete="name" required><small class="err" id="e-name"></small></div>
+        <div class="field"><label for="f-company">Компания</label><input id="f-company" name="company" autocomplete="organization" required><small class="err" id="e-company"></small></div>
+        <div class="row">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><small class="err" id="e-email"></small></div>
+          <div class="field"><label for="f-phone">Телефон <span class="opt">(необязательно)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="f-topic">Направление</label><select id="f-topic" name="topic"><option>Стратегия</option><option>Операционная эффективность</option><option>Цифровая трансформация</option><option>Организация и люди</option><option>Пока не знаю</option></select></div>
+        <div class="field"><label for="f-msg">Коротко о задаче</label><textarea id="f-msg" name="message" rows="4" maxlength="1000" required></textarea><small class="err" id="e-message"></small></div>
+        <label class="consent"><input type="checkbox" name="consent" required> Согласен на обработку персональных данных</label><small class="err" id="e-consent"></small>
+        <button class="btn btn--teal" type="submit">Отправить</button>
+        <p class="form__ok" role="status" tabindex="-1" hidden>Спасибо! Заявка принята. Это демо-сайт — сообщение никуда не отправлено.</p>
+      </form>
+    </div></section>
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div><a class="logo logo--light" href="index.html"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 2v32M2 18h32" stroke="currentColor" stroke-width="1.2"/><ellipse cx="18" cy="18" rx="7" ry="16" fill="none" stroke="#3cc1bd" stroke-width="2"/></svg><span>Меридиан<small>консалтинг</small></span></a>
+      <p>Стратегия, операционная эффективность и цифровая трансформация для среднего и крупного бизнеса.</p></div>
+      <nav aria-label="Разделы"><h3>Разделы</h3><a href="services.html">Услуги</a><a href="about.html">О компании</a><a href="index.html#cases">Проекты</a><a href="contacts.html">Контакты</a></nav>
+      <div><h3>Контакты</h3><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@meridian.example">hello@meridian.example</a><br>Москва, Пресненская наб., 00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Меридиан · Демо-шаблон: компания, проекты и люди вымышлены</p>
+  </footer>
+</body>
+</html>
