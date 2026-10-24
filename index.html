@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Шаги — приложение, которое превращает прогулки в привычку</title>
+  <meta name="description" content="Шагомер с целями, челленджами с друзьями и спокойными напоминаниями. Бесплатно для iOS и Android.">
+  <meta name="theme-color" content="#11c08f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><span class="logo__icon" aria-hidden="true">👟</span>шаги</a>
+      <nav class="nav" aria-label="Разделы"><a href="#try">Попробовать</a><a href="#features">Возможности</a><a href="#premium">Премиум</a><a href="#faq">Вопросы</a></nav>
+      <a class="btn btn--dark header__cta" href="#download">Скачать</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="chip">Бесплатно · iOS и Android</p>
+          <h1>Прогулки, которые <span>становятся привычкой</span></h1>
+          <p class="lead">Шаги считают ваши шаги, ставят реалистичные цели и мягко напоминают пройтись, когда вы засиделись. Без гонки за рекордами и чувства вины.</p>
+          <div class="stores" id="download">
+            <a class="store" href="#download" aria-label="Скачать для iPhone (демо-ссылка)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 2c0 2-1.5 3.5-3.4 3.4C12.4 3.6 14 2 16 2zM19.5 17c-.6 1.4-.9 2-1.7 3.2-1.1 1.6-2.6 3.5-4.4 3.5-1.6 0-2-1-4.2-1s-2.7 1-4.3 1C3 23.7 1.6 22 .5 20.4-2.6 15.7.8 8 5.2 8c1.8 0 2.9 1 4.4 1 1.4 0 2.3-1 4.4-1 1.6 0 3.3.9 4.5 2.4-4 2.2-3.3 7.9 1 6.6z" fill="currentColor"/></svg><span><small>Скачать для</small>iPhone</span></a>
+            <a class="store" href="#download" aria-label="Скачать для Android (демо-ссылка)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l11 10L3 22c-.6-.3-1-1-1-1.7V3.7C2 3 2.4 2.3 3 2zm12.4 11.4 2.7 2.6-12.6 7 9.9-9.6zm0-2.8L5.5 1l12.6 7-2.7 2.6zM19.5 9l3 1.7c.9.6.9 2 0 2.6l-3 1.7-3-3z" fill="currentColor"/></svg><span><small>Скачать для</small>Android</span></a>
+          </div>
+          <p class="rating">Демо-лендинг: приложение вымышлено</p>
+        </div>
+        <div class="phones" aria-hidden="true">
+          <div class="phone phone--back"><div class="screen screen--map"><div class="map-route"></div><div class="map-card"><b>4,2 км</b><span>Парк Горького · 52 мин</span></div></div></div>
+          <div class="phone phone--front"><div class="screen">
+            <p class="s-hello">Доброе утро, Маша</p>
+            <div class="ring" style="--p:.68"><div><b>6 840</b><span>из 10 000</span></div></div>
+            <div class="s-stats"><div><b>4,9</b><span>км</span></div><div><b>286</b><span>ккал</span></div><div><b>58</b><span>мин</span></div></div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="try">
+      <div class="wrap try">
+        <div>
+          <h2>Посмотрите, как это выглядит</h2>
+          <p class="muted">Подвиньте ползунок — экран в телефоне покажет день с таким количеством шагов.</p>
+          <label class="slider-label" for="steps">Шагов за день: <b id="steps-out">6 840</b></label>
+          <input id="steps" type="range" min="0" max="16000" step="20" value="6840">
+          <label class="slider-label" for="goal">Цель: <b id="goal-out">10 000</b></label>
+          <input id="goal" type="range" min="4000" max="15000" step="500" value="10000">
+          <p class="tip" id="tip" aria-live="polite"></p>
+        </div>
+        <div class="phone phone--solo" role="img" aria-label="Экран приложения с прогрессом шагов" id="demo-phone">
+          <div class="screen">
+            <p class="s-hello">Сегодня</p>
+            <div class="ring ring--big" id="ring" style="--p:.68"><div><b id="ring-steps">6 840</b><span id="ring-goal">из 10 000</span></div></div>
+            <div class="s-stats"><div><b id="km">4,9</b><span>км</span></div><div><b id="kcal">286</b><span>ккал</span></div><div><b id="min">58</b><span>мин</span></div></div>
+            <div class="week" id="week"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="features">
+      <div class="wrap">
+        <header class="head"><h2>Что умеют Шаги</h2></header>
+        <div class="feat">
+          <div class="tabs" role="tablist" aria-label="Возможности">
+            <button role="tab" aria-selected="true" aria-controls="f-panel" data-f="goals"><b>Умные цели</b><span>Цель растёт вместе с вами — на 5% в неделю, не больше</span></button>
+            <button role="tab" aria-selected="false" aria-controls="f-panel" data-f="friends"><b>Челленджи с друзьями</b><span>Соревнуйтесь командами, а не в одиночку</span></button>
+            <button role="tab" aria-selected="false" aria-controls="f-panel" data-f="nudges"><b>Спокойные напоминания</b><span>Только когда вы час не двигались, и никогда ночью</span></button>
+          </div>
+          <div class="phone phone--feat" id="f-panel" role="tabpanel" aria-live="polite"><div class="screen" id="f-screen"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="premium">
+      <div class="wrap">
+        <header class="head head--center"><h2>Бесплатно навсегда. Премиум — по желанию</h2></header>
+        <div class="plans">
+          <article class="plan"><h3>Базовый</h3><p class="price">0 ₽</p><ul><li>Шагомер и цели</li><li>История за 30 дней</li><li>2 челленджа в месяц</li><li>Виджеты</li></ul></article>
+          <article class="plan plan--pro"><h3>Премиум</h3><p class="price">149 ₽ <small>в месяц</small></p><ul><li>Всё из базового</li><li>История без ограничений</li><li>Безлимит челленджей</li><li>Маршруты и карта прогулок</li><li>Экспорт в Здоровье и Google Fit</li></ul><p class="trial">Первые 14 дней бесплатно</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="faq">
+      <div class="wrap faq">
+        <h2>Вопросы</h2>
+        <div>
+          <details><summary>Приложение сильно тратит батарею?</summary><p>Нет. Шаги берутся из встроенного датчика телефона, GPS включается только когда вы записываете маршрут.</p></details>
+          <details><summary>Нужны ли часы или браслет?</summary><p>Нет, достаточно телефона. Если есть часы — подключите их в настройках, данные объединятся без дублей.</p></details>
+          <details><summary>Кто видит мои данные?</summary><p>Только вы. Друзья видят лишь итог за день, если вы сами добавили их в челлендж.</p></details>
+          <details><summary>Как отменить подписку?</summary><p>В настройках магазина приложений, в один клик. Данные при этом останутся.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">шаги</span><p>© <span data-current-year>2026</span> · Демо-шаблон: приложение, функции и цены вымышлены</p></div></footer>
+</body>
+</html>
