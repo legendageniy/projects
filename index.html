@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прана — студия йоги. Расписание и абонементы</title>
+  <meta name="description" content="Хатха, виньяса, йога для спины и медитации в небольших группах. Расписание, абонементы и запись на первое занятие.">
+  <meta name="theme-color" content="#c3734f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 8c-5 6-5 14 0 24 5-10 5-18 0-24zM8 22c5-2 9 0 12 10M32 22c-5-2-9 0-12 10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>прана</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#schedule">Расписание</a><a href="#breathe">Практика</a><a href="#prices">Абонементы</a><a href="#teachers">Преподаватели</a></nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="eyebrow">Студия йоги в центре города</p>
+          <h1>Место, где можно <em>выдохнуть</em></h1>
+          <p class="lead">Группы до 12 человек, тёплый зал с деревянным полом и преподаватели, которые помнят ваши колени. Первое занятие — 500 ₽.</p>
+          <a class="btn" href="#schedule">Выбрать занятие</a>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 400 420"><defs><radialGradient id="sun" cx=".5" cy=".4"><stop offset="0" stop-color="#f3c7a8"/><stop offset="1" stop-color="#e7a07c"/></radialGradient><clipPath id="blob"><path d="M200 20c110 0 180 80 180 190s-70 190-180 190S20 320 20 210 90 20 200 20z"/></clipPath></defs>
+            <path d="M200 20c110 0 180 80 180 190s-70 190-180 190S20 320 20 210 90 20 200 20z" fill="#e8dccb"/>
+            <circle cx="200" cy="170" r="92" fill="url(#sun)"/>
+            <path d="M0 300c60-30 140-10 200-30s110-20 200 10v140H0z" fill="#8a9a7b" clip-path="url(#blob)"/>
+            <g fill="#4e3b31"><circle cx="200" cy="215" r="13"/><path d="M200 230c-12 0-18 10-18 22v28h36v-28c0-12-6-22-18-22z"/><path d="M182 270c-26 4-42 14-46 22h128c-4-8-20-18-46-22z"/><path d="M186 244c-18 6-30 16-38 26M214 244c18 6 30 16 38 26" stroke="#4e3b31" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="wrap">
+        <header class="head"><h2>Расписание</h2>
+          <div class="filters">
+            <label>Направление <select id="f-style"><option value="">Все</option><option>Хатха</option><option>Виньяса</option><option>Для спины</option><option>Инь-йога</option><option>Медитация</option></select></label>
+            <label>Уровень <select id="f-level"><option value="">Любой</option><option value="1">Новичкам</option><option value="2">С опытом</option></select></label>
+          </div>
+        </header>
+        <div class="week" id="week" role="list"></div>
+        <p class="legend"><span class="lv1">Новичкам</span><span class="lv2">С опытом</span></p>
+      </div>
+    </section>
+
+    <section class="section section--sage" id="breathe">
+      <div class="wrap breathe">
+        <div>
+          <h2>Минута дыхания</h2>
+          <p>Попробуйте прямо сейчас: «квадратное дыхание» — вдох, задержка, выдох и пауза по 4 секунды. Помогает успокоиться перед важной встречей.</p>
+          <div class="breathe__ctrl"><button class="btn btn--light" type="button" id="b-start">Начать</button><span id="b-rounds" aria-live="polite"></span></div>
+        </div>
+        <div class="circle-wrap"><div class="circle" id="circle"><span id="b-text" aria-live="polite">Нажмите «Начать»</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="prices">
+      <div class="wrap">
+        <header class="head"><h2>Абонементы</h2></header>
+        <div class="calc">
+          <label for="per-week">Сколько раз в неделю планируете ходить? <b id="pw-out">2</b></label>
+          <input id="per-week" type="range" min="1" max="6" value="2">
+          <p id="advice" aria-live="polite"></p>
+        </div>
+        <div class="plans" id="plans"></div>
+      </div>
+    </section>
+
+    <section class="section section--sand" id="teachers">
+      <div class="wrap">
+        <header class="head"><h2>Преподаватели</h2></header>
+        <div class="teachers">
+          <article><div class="t-ava" style="--c:#c3734f">Е</div><h3>Ева Миронова</h3><p>Хатха и йога для спины. Практикует 15 лет, учит мягко и без «правильных» поз через боль.</p></article>
+          <article><div class="t-ava" style="--c:#8a9a7b">К</div><h3>Кирилл Ан</h3><p>Виньяса. Бывший легкоатлет, строит динамичные классы с вниманием к дыханию.</p></article>
+          <article><div class="t-ava" style="--c:#6d5a7a">Л</div><h3>Лада Белова</h3><p>Инь-йога и медитации. Помогает научиться замедляться в большом городе.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contacts">
+      <div class="wrap contacts__grid">
+        <div><h2>Приходите</h2><p>Большой Златоустинский пер., 00, 2 этаж.<br>Коврики, пледы и блоки — в студии. Возьмите удобную одежду и воду.</p></div>
+        <dl><div><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 495 000-00-00</a></dd></div><div><dt>Telegram</dt><dd><a href="https://t.me/" rel="noopener">@prana_studio</a></dd></div><div><dt>Часы</dt><dd>Ежедневно 7:30–22:00</dd></div></dl>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">прана</span><p>© <span data-current-year>2026</span> · Демо-шаблон: студия, преподаватели и цены вымышлены</p></div></footer>
+
+  <dialog class="modal" id="modal" aria-labelledby="m-title">
+    <form method="dialog" class="modal__close-form"><button class="modal__close" aria-label="Закрыть">✕</button></form>
+    <h3 id="m-title"></h3><p id="m-meta"></p>
+    <form id="m-form" novalidate>
+      <div class="field"><label for="m-name">Имя</label><input id="m-name" name="name" autocomplete="name"></div>
+      <div class="field"><label for="m-phone">Телефон</label><input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></div>
+      <label class="check"><input type="checkbox" name="first" checked> Это моё первое занятие (500 ₽)</label>
+      <p class="m-msg" role="status"></p>
+      <button class="btn" type="submit">Записаться</button>
+    </form>
+  </dialog>
+</body>
+</html>
