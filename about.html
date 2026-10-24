@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>О блоге — Байт</title>
+  <meta name="description" content="Кто пишет в блог «Байт» и как предложить статью.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>try{var t=localStorage.getItem("bait-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script src="posts.js" defer></script>
+  <script src="blog.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html"><span aria-hidden="true">{b}</span> Байт</a>
+      <nav class="nav" aria-label="Разделы"><a href="index.html">Статьи</a><a href="index.html?tag=Frontend">Frontend</a><a href="index.html?tag=Backend">Backend</a><a href="about.html">О блоге</a></nav>
+      <button class="theme" id="theme" type="button" aria-label="Сменить тему"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m0-11.32L4.93 4.93m14.14 14.14-1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/><path class="moon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </header>
+  <main id="main" class="wrap about">
+    <h1>О блоге</h1>
+    <div class="prose">
+      <p>«Байт» — блог трёх разработчиков, которые устали от статей «10 причин изучить JavaScript». Мы пишем о том, с чем сталкиваемся в работе: от вёрстки компонентов до индексов в базе данных.</p>
+      <h2 id="rules">Правила</h2>
+      <ul><li>Каждый пример кода проверяем перед публикацией.</li><li>Указываем версии и поддержку браузеров.</li><li>Если ошиблись — исправляем и пишем об этом в конце статьи.</li></ul>
+      <h2 id="authors">Авторы</h2>
+    </div>
+    <div class="authors">
+      <article><span class="ava" style="--a:#ff5a36;--b:#ffb199">МК</span><h3>Марина Котова</h3><p>Фронтенд, CSS и TypeScript</p></article>
+      <article><span class="ava" style="--a:#2f6bff;--b:#9cc0ff">ОН</span><h3>Олег Нестеров</h3><p>Бэкенд, PostgreSQL, Git</p></article>
+      <article><span class="ava" style="--a:#12a37a;--b:#a8ecd3">ИГ</span><h3>Илья Гордеев</h3><p>Производительность и доступность</p></article>
+    </div>
+    <div class="prose"><h2 id="write">Хотите написать статью?</h2><p>Пришлите план на <a href="mailto:editor@bait.example">editor@bait.example</a>: тема, для кого и что читатель сможет сделать после прочтения.</p></div>
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <form class="subscribe" novalidate><label for="sub-email-f">Раз в неделю — лучшее из блога на почту</label><div><input id="sub-email-f" name="email" type="email" placeholder="you@example.com" autocomplete="email"><button type="submit">Подписаться</button></div><p class="sub-msg" role="status"></p></form>
+      <p>© <span data-current-year>2026</span> Байт · Демо-шаблон: авторы и статьи вымышлены, примеры кода рабочие</p>
+    </div>
+  </footer>
+</body>
+</html>
