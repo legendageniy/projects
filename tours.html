@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Туры — Горизонт</title>
+  <meta name="description" content="Каталог авторских туров с фильтрами по региону, месяцу, длительности и бюджету.">
+  <meta name="theme-color" content="#0b6e75">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="tours.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="24" r="10" fill="#ff7f50"/><path d="M2 24h36" stroke="#0b6e75" stroke-width="3"/><path d="M6 30h28M12 35h16" stroke="#0b6e75" stroke-width="2.5"/></svg>Горизонт</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="tours.html">Все туры</a><a href="tours.html?region=Север">Север</a><a href="tours.html?region=Алтай">Алтай</a><a href="index.html#how">Как мы работаем</a></nav>
+      <a class="phone" href="tel:+78000000000">8 800 000-00-00</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap page">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a> / <span>Туры</span></nav>
+    <div class="cat-head"><h1>Все туры</h1><p id="count" aria-live="polite"></p></div>
+    <div class="catalog">
+      <form class="filters" id="filters" aria-label="Фильтры туров">
+        <label>Регион <select name="region"></select></label>
+        <label>Месяц <select name="month"></select></label>
+        <label>Длительность <select name="duration"><option value="">Любая</option><option value="short">До 4 дней</option><option value="mid">5–7 дней</option><option value="long">8 дней и больше</option></select></label>
+        <label>Бюджет на человека <input type="range" name="budget" min="20000" max="200000" step="5000" value="200000"><output id="budget-out"></output></label>
+        <label>Сортировка <select name="sort"><option value="">По популярности</option><option value="price">Сначала дешевле</option><option value="days">Сначала короткие</option></select></label>
+        <button type="reset" class="btn btn--line">Сбросить</button>
+      </form>
+      <div class="tours tours--2" id="list"></div>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="index.html">Горизонт</a><p>Авторские туры по России с 2012 года · <mark>[реестровый номер туроператора]</mark></p><p>© <span data-current-year>2026</span> · Демо-шаблон: агентство, туры и цены вымышлены</p></div></footer>
+</body>
+</html>

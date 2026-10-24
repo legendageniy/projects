@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Горизонт — авторские туры по России</title>
+  <meta name="description" content="Байкал, Алтай, Камчатка, Карелия и другие маршруты в небольших группах. Подбор тура по месяцу и региону.">
+  <meta name="theme-color" content="#0b6e75">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="tours.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="24" r="10" fill="#ff7f50"/><path d="M2 24h36" stroke="#0b6e75" stroke-width="3"/><path d="M6 30h28M12 35h16" stroke="#0b6e75" stroke-width="2.5"/></svg>Горизонт</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="tours.html">Все туры</a><a href="tours.html?region=Север">Север</a><a href="tours.html?region=Алтай">Алтай</a><a href="index.html#how">Как мы работаем</a></nav>
+      <a class="phone" href="tel:+78000000000">8 800 000-00-00</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <svg class="hero__bg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b6e75"/><stop offset=".65" stop-color="#ffb38a"/><stop offset="1" stop-color="#fbf3e6"/></linearGradient></defs><rect width="1440" height="600" fill="url(#hs)"/><circle cx="1050" cy="390" r="90" fill="#ffd8a8"/><path d="M0 420 L180 300 L320 380 L520 250 L700 390 L900 310 L1100 400 L1300 290 L1440 360 V600 H0Z" fill="#4c8a8a" opacity=".7"/><path d="M0 480 L260 400 L480 470 L760 380 L1020 470 L1240 410 L1440 460 V600 H0Z" fill="#0b4f55"/></svg>
+      <div class="wrap hero__inner">
+        <p class="kicker">Авторские туры по России</p>
+        <h1>Туда, где заканчивается <em>карта</em></h1>
+        <p class="lead">Небольшие группы, местные гиды и продуманная логистика. Вы едете смотреть — остальное берём на себя.</p>
+        <form class="quick" id="quick" action="tours.html">
+          <label><span>Куда</span><select name="region"></select></label>
+          <label><span>Когда</span><select name="month"></select></label>
+          <button class="btn" type="submit">Подобрать тур</button>
+        </form>
+      </div>
+    </section>
+    <section class="section"><div class="wrap"><header class="head"><h2>Популярные маршруты</h2><a class="more" href="tours.html">Все туры →</a></header><div class="tours" id="popular"></div></div></section>
+    <section class="section section--sand" id="how"><div class="wrap">
+      <header class="head"><h2>Как мы работаем</h2></header>
+      <ol class="how"><li><b>Маршрут проверен</b>Каждый тур сначала проходит наша команда. Если ночёвка неудобная — меняем.</li><li><b>Группы до 14 человек</b>Помещаемся в один микроавтобус и не ждём отставших.</li><li><b>Всё включено, кроме перелёта</b>Проживание, питание, трансферы, гиды и снаряжение.</li><li><b>Отмена за 30 дней</b>Возвращаем всю сумму. Позже — по условиям договора.</li></ol>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="index.html">Горизонт</a><p>Авторские туры по России с 2012 года · <mark>[реестровый номер туроператора]</mark></p><p>© <span data-current-year>2026</span> · Демо-шаблон: агентство, туры и цены вымышлены</p></div></footer>
+</body>
+</html>
