@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Шум — агентство, которое делает бренды заметными</title>
+  <meta name="description" content="Креативное агентство: стратегия, айдентика, digital-кампании, SMM и продакшн. Бриф онлайн за 2 минуты.">
+  <meta name="theme-color" content="#ff4d00">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="blob" aria-hidden="true"></div>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">шум<span>.</span></a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#work">Кейсы</a><a href="#services">Услуги</a><a href="#team">Команда</a><a href="#brief">Бриф</a></nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <h1><span class="line">Делаем</span><span class="line">бренды <em>громче</em></span><span class="line line--small">чем бюджет</span></h1>
+        <div class="hero__bottom">
+          <p>Креативное агентство полного цикла: стратегия, айдентика, рекламные кампании и контент. 11 лет, 160 запусков, ни одного скучного.</p>
+          <a class="round" href="#brief"><span>Заполнить<br>бриф</span></a>
+        </div>
+      </div>
+      <div class="ticker" aria-hidden="true"><div><span>Стратегия</span><span>Айдентика</span><span>Digital</span><span>SMM</span><span>Продакшн</span><span>Спецпроекты</span><span>Стратегия</span><span>Айдентика</span><span>Digital</span><span>SMM</span><span>Продакшн</span><span>Спецпроекты</span></div></div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="head"><h2>Кейсы</h2>
+          <div class="filter" role="group" aria-label="Фильтр кейсов"><button aria-pressed="true" data-f="all">Все</button><button aria-pressed="false" data-f="brand">Брендинг</button><button aria-pressed="false" data-f="digital">Digital</button><button aria-pressed="false" data-f="smm">SMM</button></div>
+        </header>
+        <div class="cases" id="cases"></div>
+      </div>
+    </section>
+
+    <section class="section section--black" id="services">
+      <div class="wrap">
+        <header class="head"><h2>Что делаем</h2></header>
+        <ul class="services">
+          <li><button type="button" aria-expanded="false"><span class="n">01</span>Стратегия<span class="plus" aria-hidden="true">+</span></button><div class="svc" hidden><p>Исследование аудитории, позиционирование, коммуникационная платформа и медиаплан. Отвечаем на вопрос «что говорить и где».</p><p class="from">от 450 000 ₽ · 4–6 недель</p></div></li>
+          <li><button type="button" aria-expanded="false"><span class="n">02</span>Айдентика<span class="plus" aria-hidden="true">+</span></button><div class="svc" hidden><p>Нейминг, логотип, фирменный стиль, гайдлайн и носители — от визитки до вывески.</p><p class="from">от 600 000 ₽ · 6–10 недель</p></div></li>
+          <li><button type="button" aria-expanded="false"><span class="n">03</span>Digital-кампании<span class="plus" aria-hidden="true">+</span></button><div class="svc" hidden><p>Креативная концепция, баннеры, видео и посадочные страницы, запуск и аналитика рекламы.</p><p class="from">от 350 000 ₽ · от 3 недель</p></div></li>
+          <li><button type="button" aria-expanded="false"><span class="n">04</span>SMM<span class="plus" aria-hidden="true">+</span></button><div class="svc" hidden><p>Стратегия соцсетей, контент-план, съёмки, комьюнити-менеджмент и работа с авторами.</p><p class="from">от 180 000 ₽ в месяц</p></div></li>
+          <li><button type="button" aria-expanded="false"><span class="n">05</span>Продакшн<span class="plus" aria-hidden="true">+</span></button><div class="svc" hidden><p>Рекламные ролики, фото, анимация и 3D. Своя студия и команда операторов.</p><p class="from">от 250 000 ₽ за проект</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="wrap team">
+        <h2>Нас 34 человека. Каждый — со своим шумом</h2>
+        <ul class="people">
+          <li style="--c:#ff4d00"><b>Лиза Орлова</b><span>основатель, креативный директор</span></li>
+          <li style="--c:#111"><b>Тимур Ахметов</b><span>стратег</span></li>
+          <li style="--c:#8f5cff"><b>Соня Чен</b><span>арт-директор</span></li>
+          <li style="--c:#00b38f"><b>Глеб Морозов</b><span>руководитель digital</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--orange" id="brief">
+      <div class="wrap brief">
+        <div><h2>Бриф за 2 минуты</h2><p>Четыре вопроса — и мы вернёмся с идеями и оценкой. Без созвона «познакомиться».</p></div>
+        <form class="steps" id="steps" novalidate>
+          <ol class="dots" aria-hidden="true"><li class="on"></li><li></li><li></li><li></li></ol>
+          <fieldset data-step="0"><legend>Что нужно?</legend><div class="chips">
+            <label><input type="checkbox" name="need" value="Стратегия"><span>Стратегия</span></label><label><input type="checkbox" name="need" value="Айдентика"><span>Айдентика</span></label><label><input type="checkbox" name="need" value="Digital-кампания"><span>Digital-кампания</span></label><label><input type="checkbox" name="need" value="SMM"><span>SMM</span></label><label><input type="checkbox" name="need" value="Продакшн"><span>Продакшн</span></label></div></fieldset>
+          <fieldset data-step="1" hidden><legend>Бюджет</legend><input type="range" name="budget" min="200" max="5000" step="100" value="800" aria-label="Бюджет в тысячах рублей"><p class="budget"><b id="budget-out">800 000 ₽</b></p></fieldset>
+          <fieldset data-step="2" hidden><legend>Когда запуск?</legend><div class="chips"><label><input type="radio" name="when" value="Как можно скорее"><span>Как можно скорее</span></label><label><input type="radio" name="when" value="1–3 месяца"><span>1–3 месяца</span></label><label><input type="radio" name="when" value="Позже"><span>Позже</span></label></div></fieldset>
+          <fieldset data-step="3" hidden><legend>Как с вами связаться?</legend>
+            <label class="sr" for="b-name">Имя</label><input id="b-name" name="name" placeholder="Имя" autocomplete="name">
+            <label class="sr" for="b-company">Компания</label><input id="b-company" name="company" placeholder="Компания" autocomplete="organization">
+            <label class="sr" for="b-email">Email</label><input id="b-email" name="email" type="email" placeholder="Email" autocomplete="email"></fieldset>
+          <div class="summary" id="summary" hidden tabindex="-1"></div>
+          <p class="hint" id="hint" role="alert"></p>
+          <div class="nav-btns"><button type="button" class="btn btn--ghost" id="prev" hidden>← Назад</button><button type="button" class="btn" id="next">Дальше →</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top">шум<span>.</span></a><a href="mailto:hello@shum.example">hello@shum.example</a><p>© <span data-current-year>2026</span> · Демо-шаблон: агентство, кейсы и люди вымышлены</p></div></footer>
+</body>
+</html>
