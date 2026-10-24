@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вольт — магазин электроники: смартфоны, ноутбуки, наушники</title>
+  <meta name="description" content="Смартфоны, ноутбуки, наушники и умные часы с доставкой завтра и гарантией 2 года.">
+  <meta name="theme-color" content="#111317">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="store.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="topbar"><div class="wrap">Бесплатная доставка от 30 000 ₽ · Самовывоз из 12 магазинов · Гарантия 2 года</div></div>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Вольт — на главную"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a>
+      <nav class="nav" aria-label="Каталог">
+        <a href="catalog.html?cat=phones">Смартфоны</a>
+        <a href="catalog.html?cat=laptops">Ноутбуки</a>
+        <a href="catalog.html?cat=audio">Наушники</a>
+        <a href="catalog.html?cat=watches">Часы</a>
+        <a href="catalog.html?sale=1" class="nav__sale">Скидки</a>
+      </nav>
+      <a class="cart-link" href="cart.html" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20.5" r="1.5"/><circle cx="17" cy="20.5" r="1.5"/></svg><span class="badge" data-cart-count hidden>0</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="kicker">Неделя ноутбуков</p>
+          <h1>Arca Book 14 <span>за 89 990 ₽</span></h1>
+          <p>Лёгкий, тихий и с экраном 2.8K. До конца недели — минус 10 000 ₽ и сумка в подарок.</p>
+          <div class="hero__actions"><a class="btn btn--accent" href="product.html?id=arca-book-14">Купить</a><a class="btn btn--line" href="catalog.html?cat=laptops">Все ноутбуки</a></div>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 420 300"><circle cx="230" cy="150" r="130" fill="#f5e72b"/><rect x="90" y="60" width="250" height="160" rx="12" fill="#0e1014"/><rect x="100" y="70" width="230" height="140" rx="6" fill="#c9ced8"/><path d="M110 200 L190 130 L240 170 L280 140 L320 200Z" fill="#9aa3b5"/><circle cx="280" cy="105" r="16" fill="#fff" opacity=".8"/><path d="M60 226h310l-22 26H82z" fill="#0e1014"/></svg>
+          <span class="sticker">−10 000 ₽</span>
+        </div>
+      </div>
+    </section>
+    <section class="section"><div class="wrap"><div class="head"><h2>Категории</h2><a class="link" href="catalog.html">Весь каталог →</a></div><div class="cats" id="cats"></div></div></section>
+    <section class="section section--grey"><div class="wrap"><div class="head"><h2>Хиты продаж</h2><a class="link" href="catalog.html?sort=rating">Смотреть все →</a></div><div class="grid" id="hits"></div></div></section>
+    <section class="section"><div class="wrap perks">
+      <div><b>🚚 Доставка завтра</b><p>По городу — курьером к удобному времени, по России — в пункты выдачи.</p></div>
+      <div><b>🛡 Гарантия 2 года</b><p>На всю технику. Сервисные центры в 40 городах.</p></div>
+      <div><b>↩ 14 дней на возврат</b><p>Если не подошло — вернём деньги без вопросов.</p></div>
+      <div><b>💳 Сплит и рассрочка</b><p>Оплата частями без переплаты на 4 или 6 месяцев.</p></div>
+    </div></section>
+    <section class="section section--dark"><div class="wrap"><div class="head"><h2>Скидки недели</h2><a class="link" href="catalog.html?sale=1">Все скидки →</a></div><div class="grid" id="sale"></div></div></section>
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div><a class="logo logo--light" href="index.html"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a><p>Магазин электроники с доставкой по России и самовывозом.</p></div>
+      <nav aria-label="Покупателям"><h3>Покупателям</h3><a href="catalog.html">Каталог</a><a href="cart.html">Корзина</a><a href="catalog.html?sale=1">Скидки</a></nav>
+      <div><h3>Поддержка</h3><p><a href="tel:+78000000000">8 800 000-00-00</a><br>Ежедневно 9:00–21:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Вольт · Демо-шаблон: магазин, бренды и цены вымышлены</p>
+  </footer>
+</body>
+</html>

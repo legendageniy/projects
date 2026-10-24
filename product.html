@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Товар — Вольт</title>
+  <meta name="description" content="Описание, характеристики и цена товара.">
+  <meta name="theme-color" content="#111317">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="store.js" defer></script>
+</head>
+<body data-page="product">
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="topbar"><div class="wrap">Бесплатная доставка от 30 000 ₽ · Самовывоз из 12 магазинов · Гарантия 2 года</div></div>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Вольт — на главную"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a>
+      <nav class="nav" aria-label="Каталог">
+        <a href="catalog.html?cat=phones">Смартфоны</a>
+        <a href="catalog.html?cat=laptops">Ноутбуки</a>
+        <a href="catalog.html?cat=audio">Наушники</a>
+        <a href="catalog.html?cat=watches">Часы</a>
+        <a href="catalog.html?sale=1" class="nav__sale">Скидки</a>
+      </nav>
+      <a class="cart-link" href="cart.html" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20.5" r="1.5"/><circle cx="17" cy="20.5" r="1.5"/></svg><span class="badge" data-cart-count hidden>0</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><a href="catalog.html" id="crumb-cat">Каталог</a><span>/</span><span id="crumb-name"></span></nav>
+    <section class="pdp">
+      <div class="pdp__media" id="p-art"></div>
+      <div class="pdp__info">
+        <p class="product__brand" id="p-brand"></p>
+        <h1 id="p-name"></h1>
+        <p class="pdp__rating" id="p-rating"></p>
+        <p class="pdp__price" id="p-price"></p>
+        <p class="pdp__split">или 4 платежа без переплаты</p>
+        <div class="pdp__buy">
+          <div class="stepper" role="group" aria-label="Количество"><button type="button" data-qty="-1" aria-label="Уменьшить">−</button><span id="qty" aria-live="polite">1</span><button type="button" data-qty="1" aria-label="Увеличить">+</button></div>
+          <button class="btn btn--accent" id="buy" type="button">В корзину</button>
+        </div>
+        <ul class="pdp__perks"><li>🚚 Доставим завтра</li><li>🏬 Самовывоз сегодня</li><li>🛡 Гарантия 2 года</li></ul>
+        <h2>Характеристики</h2>
+        <dl class="specs" id="p-specs"></dl>
+      </div>
+    </section>
+    <section class="section"><div class="head"><h2>Смотрите также</h2></div><div class="grid" id="related"></div></section>
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div><a class="logo logo--light" href="index.html"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a><p>Магазин электроники с доставкой по России и самовывозом.</p></div>
+      <nav aria-label="Покупателям"><h3>Покупателям</h3><a href="catalog.html">Каталог</a><a href="cart.html">Корзина</a><a href="catalog.html?sale=1">Скидки</a></nav>
+      <div><h3>Поддержка</h3><p><a href="tel:+78000000000">8 800 000-00-00</a><br>Ежедневно 9:00–21:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Вольт · Демо-шаблон: магазин, бренды и цены вымышлены</p>
+  </footer>
+</body>
+</html>

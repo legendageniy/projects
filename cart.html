@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — Вольт</title>
+  <meta name="description" content="Корзина и оформление заказа.">
+  <meta name="theme-color" content="#111317">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="store.js" defer></script>
+</head>
+<body data-page="cart">
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="topbar"><div class="wrap">Бесплатная доставка от 30 000 ₽ · Самовывоз из 12 магазинов · Гарантия 2 года</div></div>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Вольт — на главную"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a>
+      <nav class="nav" aria-label="Каталог">
+        <a href="catalog.html?cat=phones">Смартфоны</a>
+        <a href="catalog.html?cat=laptops">Ноутбуки</a>
+        <a href="catalog.html?cat=audio">Наушники</a>
+        <a href="catalog.html?cat=watches">Часы</a>
+        <a href="catalog.html?sale=1" class="nav__sale">Скидки</a>
+      </nav>
+      <a class="cart-link" href="cart.html" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20.5" r="1.5"/><circle cx="17" cy="20.5" r="1.5"/></svg><span class="badge" data-cart-count hidden>0</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap cartpage">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Корзина</span></nav>
+    <h1>Корзина</h1>
+    <div id="cart-empty" class="empty-cart" hidden><p>В корзине пока пусто.</p><a class="btn btn--accent" href="catalog.html">Перейти в каталог</a></div>
+    <div id="done" class="done" hidden tabindex="-1"><h2>Заказ № <span id="done-num"></span> оформлен</h2><p>Это демо-магазин: заказ не создан и оплата не списана. В рабочей версии здесь будет подтверждение и ссылка на отслеживание.</p><a class="btn btn--accent" href="index.html">На главную</a></div>
+    <div id="cart-full" class="cart" hidden>
+      <div>
+        <ul class="lines" id="lines"></ul>
+        <form class="checkout" id="checkout" novalidate>
+          <h2>Оформление</h2>
+          <fieldset class="delivery"><legend>Получение</legend>
+            <label class="opt"><input type="radio" name="delivery" value="courier" checked><span><b>Курьер</b> завтра, 490 ₽ или бесплатно от 30 000 ₽</span></label>
+            <label class="opt"><input type="radio" name="delivery" value="pickup"><span><b>Самовывоз</b> сегодня из магазина, бесплатно</span></label>
+          </fieldset>
+          <div class="fields">
+            <div class="field"><label for="name">Имя</label><input id="name" name="name" autocomplete="name"><small id="name-err" class="err"></small></div>
+            <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"><small id="phone-err" class="err"></small></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><small id="email-err" class="err"></small></div>
+            <div class="field" id="address-field"><label for="address">Адрес доставки</label><input id="address" name="address" autocomplete="street-address" placeholder="Город, улица, дом, квартира"><small id="address-err" class="err"></small></div>
+          </div>
+          <button class="btn btn--accent btn--wide" type="submit">Оформить заказ</button>
+        </form>
+      </div>
+      <aside class="summary" aria-label="Итого">
+        <h2>Итого</h2>
+        <dl><div><dt>Товары</dt><dd id="s-items"></dd></div><div><dt>Скидка</dt><dd id="s-disc"></dd></div><div><dt>Доставка</dt><dd id="s-del"></dd></div><div class="total"><dt>К оплате</dt><dd id="s-total"></dd></div></dl>
+        <form id="promo" class="promo"><label class="sr" for="promo-code">Промокод</label><input id="promo-code" placeholder="Промокод (VOLT10)"><button class="btn btn--line" type="submit">Применить</button></form>
+        <p id="promo-msg" role="status"></p>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div><a class="logo logo--light" href="index.html"><span class="logo__bolt" aria-hidden="true">⚡</span>вольт</a><p>Магазин электроники с доставкой по России и самовывозом.</p></div>
+      <nav aria-label="Покупателям"><h3>Покупателям</h3><a href="catalog.html">Каталог</a><a href="cart.html">Корзина</a><a href="catalog.html?sale=1">Скидки</a></nav>
+      <div><h3>Поддержка</h3><p><a href="tel:+78000000000">8 800 000-00-00</a><br>Ежедневно 9:00–21:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Вольт · Демо-шаблон: магазин, бренды и цены вымышлены</p>
+  </footer>
+</body>
+</html>
