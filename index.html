@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мера — многопрофильный медицинский центр. Запись к врачу онлайн</title>
+  <meta name="description" content="Терапевты, кардиологи, неврологи и другие специалисты. Онлайн-запись к врачу, анализы и диагностика в одном центре.">
+  <meta name="theme-color" content="#1e6fd9">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="topline"><div class="wrap topline__row"><span>Пн–Сб 8:00–21:00, Вс 9:00–18:00</span><a href="tel:+78000000000">8 800 000-00-00</a></div></div>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top" aria-label="Мера — наверх"><svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1e6fd9"/><path d="M5 19h7l3-7 5 14 3-7h8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Мера</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="#doctors">Врачи</a><a href="#prices">Цены</a><a href="#checkup">Чекапы</a><a href="#info">Документы</a></nav>
+      <a class="btn btn--blue header__cta" href="#booking">Записаться</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <h1>Врачи, которые <span>объясняют</span>, а не пугают</h1>
+          <p>Приём длится 30 минут, а не 12. Анализы — в тот же день, результаты — в личном кабинете с понятными комментариями врача.</p>
+          <form class="find" id="find" role="search">
+            <label class="sr" for="q">Врач или услуга</label>
+            <input id="q" type="search" placeholder="Например: кардиолог или УЗИ" autocomplete="off">
+            <button class="btn btn--blue" type="submit">Найти</button>
+          </form>
+          <ul class="quick"><li><a href="#doctors" data-spec="Терапевт">Терапевт</a></li><li><a href="#doctors" data-spec="Педиатр">Педиатр</a></li><li><a href="#doctors" data-spec="Кардиолог">Кардиолог</a></li><li><a href="#prices">УЗИ</a></li></ul>
+        </div>
+        <div class="hero__card" aria-hidden="true">
+          <svg viewBox="0 0 360 300"><rect x="20" y="20" width="320" height="260" rx="28" fill="#fff"/><circle cx="90" cy="90" r="36" fill="#d7e8fb"/><circle cx="90" cy="80" r="14" fill="#1e6fd9"/><path d="M64 112c6-14 46-14 52 0" fill="#1e6fd9"/><rect x="142" y="66" width="150" height="14" rx="7" fill="#1b2a41"/><rect x="142" y="92" width="100" height="10" rx="5" fill="#b8c7d9"/><rect x="50" y="150" width="78" height="40" rx="12" fill="#e8f3fb"/><rect x="141" y="150" width="78" height="40" rx="12" fill="#1e6fd9"/><rect x="232" y="150" width="78" height="40" rx="12" fill="#e8f3fb"/><text x="89" y="175" font-size="14" text-anchor="middle" fill="#1b2a41" font-family="Nunito Variable">10:00</text><text x="180" y="175" font-size="14" text-anchor="middle" fill="#fff" font-family="Nunito Variable">10:30</text><text x="271" y="175" font-size="14" text-anchor="middle" fill="#1b2a41" font-family="Nunito Variable">11:30</text><rect x="50" y="214" width="260" height="44" rx="14" fill="#2ec4a6"/><text x="180" y="242" font-size="15" text-anchor="middle" fill="#fff" font-weight="700" font-family="Nunito Variable">Записаться</text></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust wrap" aria-label="Почему нас выбирают"><div><b>30 мин</b>длится приём</div><div><b>14</b>направлений</div><div><b>1 день</b>на большинство анализов</div><div><b>Лицензия</b>на медицинскую деятельность</div></section>
+
+    <section class="section" id="doctors">
+      <div class="wrap">
+        <header class="head"><h2>Врачи</h2><div class="specs" role="group" aria-label="Специальность" id="specs"></div></header>
+        <p class="found" id="found" aria-live="polite"></p>
+        <div class="doctors" id="doctor-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="booking">
+      <div class="wrap">
+        <header class="head"><h2>Запись на приём</h2><p>Выберите врача, день и время — подтверждение придёт по SMS.</p></header>
+        <form class="booking" id="booking-form" novalidate>
+          <div class="step"><span class="num">1</span><label for="b-doc">Врач</label><select id="b-doc" name="doctor"></select></div>
+          <div class="step"><span class="num">2</span><span class="label" id="days-l">День</span><div class="days" role="radiogroup" aria-labelledby="days-l" id="days"></div></div>
+          <div class="step"><span class="num">3</span><span class="label" id="slots-l">Время</span><div class="slots" role="radiogroup" aria-labelledby="slots-l" id="slots"></div><small class="err" id="e-slot"></small></div>
+          <div class="step step--form"><span class="num">4</span><span class="label">Пациент</span>
+            <div class="pf">
+              <div class="field"><label for="p-name">ФИО</label><input id="p-name" name="name" autocomplete="name"><small class="err" id="e-name"></small></div>
+              <div class="field"><label for="p-phone">Телефон</label><input id="p-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"><small class="err" id="e-phone"></small></div>
+              <div class="field"><label for="p-birth">Дата рождения</label><input id="p-birth" name="birth" type="date"><small class="err" id="e-birth"></small></div>
+            </div>
+            <label class="consent"><input type="checkbox" name="consent"> Согласен(на) на обработку персональных данных, включая сведения о здоровье</label><small class="err" id="e-consent"></small>
+          </div>
+          <div class="booking__foot"><p id="b-summary" aria-live="polite"></p><button class="btn btn--blue" type="submit">Записаться</button></div>
+          <div class="done" id="done" hidden tabindex="-1"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="prices">
+      <div class="wrap">
+        <header class="head"><h2>Цены</h2><label class="psearch"><span class="sr">Поиск по услугам</span><input id="psearch" type="search" placeholder="Поиск по услугам"></label></header>
+        <div id="price-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--blue" id="checkup">
+      <div class="wrap">
+        <header class="head"><h2>Чекапы</h2><p>Готовые программы обследования за один визит, 2–3 часа.</p></header>
+        <div class="checkups">
+          <article><h3>Базовый</h3><p>Терапевт, общий и биохимический анализ крови, ЭКГ.</p><b>6 900 ₽</b></article>
+          <article><h3>Сердце</h3><p>Кардиолог, ЭКГ, ЭхоКГ, липидный профиль, холтер.</p><b>14 900 ₽</b></article>
+          <article><h3>Женское здоровье</h3><p>Гинеколог, УЗИ малого таза и молочных желёз, анализы.</p><b>12 400 ₽</b></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="info">
+      <div class="wrap info">
+        <div><h2>Документы и сведения</h2><p class="muted">Обязательная информация о медицинской организации. Места в скобках заполняются реальными данными.</p></div>
+        <dl>
+          <div><dt>Организация</dt><dd><mark>[Полное наименование, ОГРН, ИНН]</mark></dd></div>
+          <div><dt>Лицензия</dt><dd><mark>[Номер и дата лицензии, выдавший орган]</mark></dd></div>
+          <div><dt>Адрес</dt><dd>ул. Садовая, 00 — 3 минуты от метро</dd></div>
+          <div><dt>Контроль качества</dt><dd><mark>[Контакты органа надзора]</mark></dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><p class="warn">Имеются противопоказания. Необходима консультация специалиста.</p><p>© <span data-current-year>2026</span> Мера · Демо-шаблон: клиника, врачи и цены вымышлены, не является медицинской информацией</p></div></footer>
+</body>
+</html>
