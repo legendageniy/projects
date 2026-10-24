@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Номера — Сосны</title>
+  <meta name="description" content="Номера, шале и барнхаусы отеля «Сосны» с ценами.">
+  <meta name="theme-color" content="#1f3a2e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="hotel.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Сосны — на главную"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="rooms.html">Номера</a><a href="index.html#leisure">Отдых</a><a href="index.html#food">Ресторан</a><a href="index.html#contacts">Как добраться</a></nav>
+      <a class="btn btn--sand header__cta" href="index.html#book">Забронировать</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap page">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a> / <span>Номера</span></nav>
+    <h1>Номера и шале</h1>
+    <p class="stay" id="stay">Укажите даты на <a href="index.html#book">главной</a>, чтобы увидеть стоимость проживания целиком.</p>
+    <form class="filter" id="filter" aria-label="Фильтр номеров">
+      <label>Гостей <select name="guests"><option value="1">от 1</option><option value="2" selected>от 2</option><option value="3">от 3</option><option value="4">от 4</option><option value="5">от 5</option><option value="6">6</option></select></label>
+      <label>Сортировка <select name="sort"><option value="price">Сначала дешевле</option><option value="size">Сначала просторнее</option></select></label>
+      <p id="count" aria-live="polite"></p>
+    </form>
+    <div class="rooms" id="rooms"></div>
+  </main>
+  <footer class="footer" id="contacts">
+    <div class="wrap footer__grid">
+      <div><a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a><p>Загородный отель в сосновом лесу на берегу озера. 90 км от Москвы.</p></div>
+      <div><h3>Как добраться</h3><p>На машине — 1,5 часа по Новорижскому шоссе. На электричке — до станции «Лесная», дальше наш трансфер.</p></div>
+      <div><h3>Контакты</h3><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@sosny.example">hello@sosny.example</a><br>Заезд с 15:00, выезд до 12:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Сосны · Демо-шаблон: отель, цены и адрес вымышлены</p>
+  </footer>
+</body>
+</html>

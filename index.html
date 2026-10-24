@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сосны — загородный отель в сосновом лесу</title>
+  <meta name="description" content="Номера и шале в сосновом лесу у озера, баня, ресторан и тропы. Онлайн-бронирование.">
+  <meta name="theme-color" content="#1f3a2e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="hotel.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Сосны — на главную"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="rooms.html">Номера</a><a href="index.html#leisure">Отдых</a><a href="index.html#food">Ресторан</a><a href="index.html#contacts">Как добраться</a></nav>
+      <a class="btn btn--sand header__cta" href="index.html#book">Забронировать</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="book">
+      <svg class="hero__bg" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d9b8"/><stop offset=".7" stop-color="#efe9dd"/></linearGradient></defs>
+        <rect width="1440" height="640" fill="url(#sky)"/><circle cx="1080" cy="210" r="70" fill="#f8c98f"/>
+        <path d="M0 470 C300 400 520 450 760 420 S1200 380 1440 430 V640H0Z" fill="#9db69a"/>
+        <g fill="#4f7356">
+          <path d="M80 470l40-150 40 150zM150 480l52-200 52 200zM1180 460l44-170 44 170zM1260 470l56-220 56 220zM1350 480l40-150 40 150z"/>
+        </g>
+        <path d="M0 540 C360 500 700 560 1040 520 S1300 500 1440 520 V640H0Z" fill="#1f3a2e"/>
+        <g fill="#1f3a2e"><path d="M40 560l60-230 60 230zM230 560l46-180 46 180zM1040 560l50-200 50 200zM1300 570l66-260 66 260z"/></g>
+        <path d="M520 560 C620 540 860 545 960 565" stroke="#c9dbe0" stroke-width="16" stroke-linecap="round" fill="none" opacity=".7"/>
+      </svg>
+      <div class="wrap hero__text">
+        <p class="kicker">Загородный отель · 90 км от Москвы</p>
+        <h1>Выходные в&nbsp;сосновом лесу <em>у тихого озера</em></h1>
+        <p>Номера и шале среди вековых сосен, баня у воды, завтраки из фермерских продуктов и ни одного соседа за забором.</p>
+      </div>
+      <form class="search wrap" id="search" action="rooms.html" aria-label="Поиск номеров">
+        <div class="search__field"><label for="s-from">Заезд</label><input id="s-from" type="date" name="from" required></div>
+        <div class="search__field"><label for="s-to">Выезд</label><input id="s-to" type="date" name="to" required></div>
+        <div class="search__field"><label for="s-guests">Гости</label><select id="s-guests" name="guests"><option value="1">1 гость</option><option value="2" selected>2 гостя</option><option value="3">3 гостя</option><option value="4">4 гостя</option><option value="5">5 гостей</option><option value="6">6 гостей</option></select></div>
+        <p class="search__nights" id="nights" aria-live="polite"></p>
+        <button class="btn btn--green" type="submit">Найти номер</button>
+      </form>
+    </section>
+
+
+    <section class="section">
+      <div class="wrap">
+        <header class="head"><p class="kicker">Номера</p><h2>Пять вариантов — от уютного стандарта до барнхауса с сауной</h2></header>
+        <div class="teasers" id="teasers"></div>
+        <p class="center"><a class="btn btn--line" href="rooms.html">Все номера и цены</a></p>
+      </div>
+    </section>
+
+    <section class="section section--green" id="leisure">
+      <div class="wrap">
+        <header class="head"><p class="kicker kicker--light">Отдых</p><h2>Чем заняться</h2></header>
+        <div class="leisure">
+          <article><span aria-hidden="true">♨</span><h3>Баня у озера</h3><p>Дровяная баня на берегу и прорубь зимой. Аренда от 2 часов.</p></article>
+          <article><span aria-hidden="true">⛵</span><h3>Сапы и лодки</h3><p>Прокат с мая по сентябрь, рассвет на воде — бесплатно для гостей.</p></article>
+          <article><span aria-hidden="true">🥾</span><h3>Тропы</h3><p>Три маршрута от 3 до 12 км с картами и указателями.</p></article>
+          <article><span aria-hidden="true">🧘</span><h3>Йога на веранде</h3><p>По выходным в 9:00, коврики выдаём.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="food">
+      <div class="wrap food">
+        <div><p class="kicker">Ресторан «Хвоя»</p><h2>Готовим из того, что растёт рядом</h2><p>Завтрак включён в тариф «с завтраком» или стоит 1 200 ₽ на гостя. Днём — меню из печи и гриля, вечером — ужин у камина. Овощи с соседней фермы, рыба из озера, хлеб печём сами.</p></div>
+        <ul class="menu-list"><li><span>Сырники со сметаной и ягодами</span><b>490 ₽</b></li><li><span>Уха из озёрной рыбы</span><b>690 ₽</b></li><li><span>Утка с печёными яблоками</span><b>1 290 ₽</b></li><li><span>Иван-чай с мёдом, чайник</span><b>390 ₽</b></li></ul>
+      </div>
+    </section>
+  </main>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("teasers");t.innerHTML=ROOMS.slice(0,3).map(r=>`<a class="teaser" href="booking.html?room=${r.id}">${roomArt(r)}<span><b>${r.name}</b><small>от ${rub(r.price)} за ночь</small></span></a>`).join("")})</script>
+  <footer class="footer" id="contacts">
+    <div class="wrap footer__grid">
+      <div><a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a><p>Загородный отель в сосновом лесу на берегу озера. 90 км от Москвы.</p></div>
+      <div><h3>Как добраться</h3><p>На машине — 1,5 часа по Новорижскому шоссе. На электричке — до станции «Лесная», дальше наш трансфер.</p></div>
+      <div><h3>Контакты</h3><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@sosny.example">hello@sosny.example</a><br>Заезд с 15:00, выезд до 12:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Сосны · Демо-шаблон: отель, цены и адрес вымышлены</p>
+  </footer>
+</body>
+</html>

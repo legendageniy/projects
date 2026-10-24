@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бронирование — Сосны</title>
+  <meta name="description" content="Бронирование номера с расчётом стоимости.">
+  <meta name="theme-color" content="#1f3a2e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="hotel.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html" aria-label="Сосны — на главную"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="rooms.html">Номера</a><a href="index.html#leisure">Отдых</a><a href="index.html#food">Ресторан</a><a href="index.html#contacts">Как добраться</a></nav>
+      <a class="btn btn--sand header__cta" href="index.html#book">Забронировать</a>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap page">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a> / <a href="rooms.html">Номера</a> / <span>Бронирование</span></nav>
+    <h1>Бронирование</h1>
+    <div class="booking">
+      <form id="book-form" class="bform" novalidate>
+        <div class="row">
+          <div class="field"><label for="b-from">Заезд</label><input id="b-from" name="from" type="date" required></div>
+          <div class="field"><label for="b-to">Выезд</label><input id="b-to" name="to" type="date" required><small class="err" id="e-to"></small></div>
+          <div class="field"><label for="b-guests">Гостей</label><input id="b-guests" name="guests" type="number" min="1" inputmode="numeric"></div>
+        </div>
+        <fieldset class="extras"><legend>Дополнительно</legend>
+          <label><input type="checkbox" name="breakfast" checked> Завтраки — 1 200 ₽ на гостя в день</label>
+          <label><input type="checkbox" name="transfer"> Трансфер от станции «Лесная» — 3 500 ₽</label>
+        </fieldset>
+        <div class="row row--2">
+          <div class="field"><label for="b-name">Имя и фамилия</label><input id="b-name" name="name" autocomplete="name"><small class="err" id="e-name"></small></div>
+          <div class="field"><label for="b-phone">Телефон</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"><small class="err" id="e-phone"></small></div>
+        </div>
+        <div class="field"><label for="b-email">Email для подтверждения</label><input id="b-email" name="email" type="email" autocomplete="email"><small class="err" id="e-email"></small></div>
+        <div class="field"><label for="b-wish">Пожелания <span class="muted">(необязательно)</span></label><textarea id="b-wish" name="wish" rows="3" maxlength="500" placeholder="Поздний заезд, детская кроватка, аллергии"></textarea></div>
+        <button class="btn btn--green" type="submit">Забронировать без предоплаты</button>
+        <p class="muted small">Бесплатная отмена за 3 дня до заезда.</p>
+      </form>
+      <div id="done" class="done" hidden tabindex="-1"><h2>Бронь принята</h2><p id="done-text"></p><a class="btn btn--line" href="index.html">На главную</a></div>
+      <aside class="summary" aria-label="Стоимость">
+        <div id="b-art"></div>
+        <h2 id="b-room"></h2><p class="muted" id="b-meta"></p>
+        <p class="dates" id="dates"></p>
+        <dl id="lines"></dl>
+        <p class="total"><span>Итого</span><b id="total" aria-live="polite"></b></p>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer" id="contacts">
+    <div class="wrap footer__grid">
+      <div><a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 8 21h7L9 31h22l-6-10h7z" fill="currentColor"/><rect x="18" y="31" width="4" height="6" fill="currentColor"/></svg>Сосны</a><p>Загородный отель в сосновом лесу на берегу озера. 90 км от Москвы.</p></div>
+      <div><h3>Как добраться</h3><p>На машине — 1,5 часа по Новорижскому шоссе. На электричке — до станции «Лесная», дальше наш трансфер.</p></div>
+      <div><h3>Контакты</h3><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@sosny.example">hello@sosny.example</a><br>Заезд с 15:00, выезд до 12:00</p></div>
+    </div>
+    <p class="wrap footer__copy">© <span data-current-year>2026</span> Сосны · Демо-шаблон: отель, цены и адрес вымышлены</p>
+  </footer>
+</body>
+</html>
