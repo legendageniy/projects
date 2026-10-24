@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Линия — архитектурное бюро</title>
+  <meta name="description" content="Архитектурное бюро: жилые дома, общественные пространства и интерьеры. Избранные проекты.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="arch.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html">линия<span>/</span>бюро</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="index.html">Проекты</a><a href="studio.html">Бюро</a><a href="studio.html#contact">Контакты</a></nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="intro">
+      <h1>Архитектура, в&nbsp;которой <em>тихо</em></h1>
+      <p>Проектируем жилые дома, общественные пространства и интерьеры. Работаем с контекстом, светом и простыми материалами. С 2011 года — 64 реализованных объекта.</p>
+    </section>
+    <div class="filter" role="group" aria-label="Тип проектов"><button aria-pressed="true" data-t="all">Все</button><button aria-pressed="false" data-t="Жилые">Жилые</button><button aria-pressed="false" data-t="Общественные">Общественные</button><button aria-pressed="false" data-t="Интерьеры">Интерьеры</button></div>
+    <div class="grid" id="grid"></div>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span>линия/бюро — архитектура и интерьеры</span><a href="mailto:studio@liniya.example">studio@liniya.example</a><span>© <span data-current-year>2026</span> · Демо-шаблон: бюро и проекты вымышлены</span></div></footer>
+</body>
+</html>

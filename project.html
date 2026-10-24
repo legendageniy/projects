@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Проект — Линия</title>
+  <meta name="description" content="Описание проекта, эскиз и визуализация фасада.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="arch.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html">линия<span>/</span>бюро</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="index.html">Проекты</a><a href="studio.html">Бюро</a><a href="studio.html#contact">Контакты</a></nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap" >
+    <article id="project" class="project">
+      <a class="back" href="index.html">← Все проекты</a>
+      <h1 id="p-name"></h1>
+      <div class="cmp" id="cmp" aria-label="Сравнение эскиза и визуализации">
+        <div class="cmp__a" id="cmp-a"></div>
+        <div class="cmp__b" id="cmp-b"></div>
+        <div class="cmp__handle" aria-hidden="true"><span>⇆</span></div>
+        <span class="cmp__label cmp__label--a">Эскиз</span><span class="cmp__label cmp__label--b">Визуализация</span>
+      </div>
+      <label class="sr" for="cmp-range">Положение разделителя между эскизом и визуализацией</label>
+      <input type="range" id="cmp-range" min="0" max="100" value="50" class="cmp-range">
+      <div class="p-body"><dl class="specs" id="p-specs"></dl><p class="p-text" id="p-text"></p></div>
+      <nav class="p-nav" id="p-nav" aria-label="Другие проекты"></nav>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span>линия/бюро — архитектура и интерьеры</span><a href="mailto:studio@liniya.example">studio@liniya.example</a><span>© <span data-current-year>2026</span> · Демо-шаблон: бюро и проекты вымышлены</span></div></footer>
+</body>
+</html>

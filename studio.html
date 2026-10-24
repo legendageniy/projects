@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бюро — Линия</title>
+  <meta name="description" content="О бюро, принципы, этапы работы и контакты.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="arch.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="index.html">линия<span>/</span>бюро</a>
+      <nav class="nav" id="nav" aria-label="Разделы"><a href="index.html">Проекты</a><a href="studio.html">Бюро</a><a href="studio.html#contact">Контакты</a></nav>
+      <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Меню"><span></span></button>
+    </div>
+  </header>
+  <main id="main" class="wrap studio">
+    <h1>Бюро</h1>
+    <div class="studio__grid">
+      <p class="big">Нас девять: архитекторы, дизайнеры интерьеров и инженер. Ведём проект от концепции до авторского надзора — чтобы на стройке получилось то, что нарисовано.</p>
+      <div><h2>Принципы</h2><ol class="principles"><li>Сначала участок, потом форма</li><li>Меньше материалов — лучше детали</li><li>Свет важнее квадратных метров</li><li>Смета — часть проекта, а не сюрприз</li></ol></div>
+    </div>
+    <h2 class="h2">Этапы работы</h2>
+    <ol class="stages"><li><b>01</b>Предпроектный анализ<span>2–4 недели</span></li><li><b>02</b>Концепция<span>4–6 недель</span></li><li><b>03</b>Проектная документация<span>2–4 месяца</span></li><li><b>04</b>Рабочая документация<span>2–5 месяцев</span></li><li><b>05</b>Авторский надзор<span>весь период стройки</span></li></ol>
+    <section id="contact" class="contact">
+      <h2 class="h2">Контакты</h2>
+      <div class="contact__grid">
+        <p>Санкт-Петербург, Большая Конюшенная, 00<br><a href="mailto:studio@liniya.example">studio@liniya.example</a><br><a href="tel:+78120000000">+7 812 000-00-00</a></p>
+        <form id="cform" novalidate><label class="sr" for="c-msg">Опишите задачу</label><textarea id="c-msg" name="msg" rows="4" placeholder="Опишите задачу: объект, участок, сроки"></textarea><label class="sr" for="c-mail">Email</label><input id="c-mail" name="email" type="email" placeholder="Email"><button type="submit">Отправить</button><p class="c-msg" role="status"></p></form>
+      </div>
+    </section>
+  </main>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementById("cform");f.addEventListener("submit",e=>{e.preventDefault();const ok=f.msg.value.trim().length>9&&/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim());f.querySelector(".c-msg").textContent=ok?"Спасибо! Ответим в течение двух дней (демо — письмо не отправлено).":"Опишите задачу (от 10 символов) и укажите email.";if(ok)f.reset()})})</script>
+  <footer class="footer"><div class="wrap footer__row"><span>линия/бюро — архитектура и интерьеры</span><a href="mailto:studio@liniya.example">studio@liniya.example</a><span>© <span data-current-year>2026</span> · Демо-шаблон: бюро и проекты вымышлены</span></div></footer>
+</body>
+</html>
