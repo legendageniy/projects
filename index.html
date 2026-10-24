@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Андрей Соколов — Frontend-разработчик</title>
+  <meta name="description" content="Резюме Frontend-разработчика: 7 лет опыта, React, TypeScript, производительность и дизайн-системы.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <div class="toolbar" role="toolbar" aria-label="Действия с резюме">
+    <div class="lang" role="group" aria-label="Язык"><button type="button" data-lang="ru" aria-pressed="true">RU</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    <button type="button" class="tool" id="print"><span data-i18n="print">Скачать PDF</span></button>
+  </div>
+  <main id="main" class="sheet">
+    <header class="top">
+      <div class="photo" aria-hidden="true">АС</div>
+      <div>
+        <h1 data-i18n="name">Андрей Соколов</h1>
+        <p class="role" data-i18n="role">Frontend-разработчик · React, TypeScript</p>
+        <p class="status"><span class="dot"></span><span data-i18n="status">Открыт к предложениям · удалённо или Санкт-Петербург</span></p>
+      </div>
+      <ul class="contacts">
+        <li><button type="button" class="copy" data-copy="andrey@example.com" aria-label="Скопировать email">andrey@example.com <span aria-hidden="true">⧉</span></button></li>
+        <li><a href="https://t.me/" rel="noopener">@andrey_dev</a></li>
+        <li><a href="https://github.com/" rel="noopener">github.com/andrey-dev</a></li>
+      </ul>
+    </header>
+
+    <section class="block">
+      <h2 data-i18n="aboutT">Обо мне</h2>
+      <p class="about" data-i18n="about">7 лет делаю интерфейсы для продуктов с большой аудиторией. Люблю быстрые сайты и понятный код: ускорил каталог маркетплейса в 2,4 раза, построил дизайн-систему на 120 компонентов и вырастил трёх джунов до мидлов.</p>
+    </section>
+
+    <div class="cols">
+      <div>
+        <section class="block">
+          <h2 data-i18n="expT">Опыт</h2>
+          <ol class="jobs">
+            <li><div class="job__head"><h3 data-i18n="c1">Маркетплейс «Полка»</h3><time>2023 — <span data-i18n="now">сейчас</span></time></div><p class="pos" data-i18n="j1p">Senior Frontend Developer</p>
+              <ul><li data-i18n="j1a">Перевёл каталог на серверный рендеринг: LCP 4,1 → 1,7 с, конверсия +6%</li><li data-i18n="j1b">Внедрил визуальные тесты, число регрессий в релизах снизилось вдвое</li><li data-i18n="j1c">Ментор трёх разработчиков, провожу собеседования</li></ul></li>
+            <li><div class="job__head"><h3 data-i18n="c2">Финтех-стартап «Кошелёк»</h3><time>2020 — 2023</time></div><p class="pos" data-i18n="j2p">Frontend Developer</p>
+              <ul><li data-i18n="j2a">Создал дизайн-систему на 120 компонентов с документацией в Storybook</li><li data-i18n="j2b">Сделал веб-версию приложения с нуля: React, TypeScript, React Query</li><li data-i18n="j2c">Довёл доступность форм до уровня WCAG 2.1 AA</li></ul></li>
+            <li><div class="job__head"><h3 data-i18n="c3">Веб-студия «Пиксель»</h3><time>2018 — 2020</time></div><p class="pos" data-i18n="j3p">Junior → Middle Frontend Developer</p>
+              <ul><li data-i18n="j3a">40+ сайтов для малого бизнеса: вёрстка, анимации, интеграции с CMS</li></ul></li>
+          </ol>
+        </section>
+        <section class="block">
+          <h2 data-i18n="projT">Проекты</h2>
+          <div class="projects">
+            <article><h3>perf-budget</h3><p data-i18n="p1">CLI для контроля размера бандла в CI. 900★ на GitHub.</p></article>
+            <article><h3>a11y-checklist</h3><p data-i18n="p2">Чек-лист доступности для ревью интерфейсов, переведён на 4 языка.</p></article>
+          </div>
+        </section>
+      </div>
+      <aside>
+        <section class="block">
+          <h2 data-i18n="skillsT">Навыки</h2>
+          <ul class="skills">
+            <li><span>TypeScript</span><meter min="0" max="5" value="5" aria-label="TypeScript: 5 из 5"></meter></li>
+            <li><span>React / Next.js</span><meter min="0" max="5" value="5" aria-label="React: 5 из 5"></meter></li>
+            <li><span data-i18n="sk3">CSS, адаптивность</span><meter min="0" max="5" value="5" aria-label="CSS: 5 из 5"></meter></li>
+            <li><span data-i18n="sk4">Производительность</span><meter min="0" max="5" value="4" aria-label="Производительность: 4 из 5"></meter></li>
+            <li><span data-i18n="sk5">Тестирование</span><meter min="0" max="5" value="4" aria-label="Тестирование: 4 из 5"></meter></li>
+            <li><span>Node.js</span><meter min="0" max="5" value="3" aria-label="Node.js: 3 из 5"></meter></li>
+          </ul>
+          <p class="tags">Vite · Vitest · Playwright · Storybook · Figma · Git · CI/CD · PostgreSQL</p>
+        </section>
+        <section class="block">
+          <h2 data-i18n="eduT">Образование</h2>
+          <p><b data-i18n="edu1">СПбГУ, прикладная математика</b><br><small>2014 — 2018</small></p>
+        </section>
+        <section class="block">
+          <h2 data-i18n="langT">Языки</h2>
+          <p data-i18n="langs">Русский — родной<br>Английский — B2, рабочая переписка и созвоны</p>
+        </section>
+      </aside>
+    </div>
+    <footer class="foot"><p data-i18n="foot">Демо-шаблон резюме: человек, компании и цифры вымышлены.</p></footer>
+  </main>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
