@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Рубрика — Пятая линия</title>
+  <meta name="description" content="Все материалы рубрики городского издания «Пятая линия».">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="news.js" defer></script>
+  <script src="portal.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="mast">
+    <div class="wrap mast__top"><span id="today" class="small"></span><a class="logo" href="index.html">Пятая линия</a><span class="small weather" title="Погода — демо-данные">+7° облачно</span></div>
+    <nav class="wrap rubrics" aria-label="Рубрики" id="rubrics"><a href="index.html">Главное</a></nav>
+  </header>
+  <main id="main" class="wrap" data-page="category">
+    <header class="cat-head"><p class="kicker" id="cat-kicker">Рубрика</p><h1 id="cat-title">Все материалы</h1>
+      <div class="sort" role="group" aria-label="Сортировка"><button type="button" data-sort="new" aria-pressed="true">Сначала новые</button><button type="button" data-sort="pop" aria-pressed="false">Популярные</button></div></header>
+    <div class="feed" id="feed"></div>
+    <p class="more-wrap"><button class="more" type="button" id="more">Показать ещё</button></p>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo logo--sm" href="index.html">Пятая линия</a><p>© <span data-current-year>2026</span> · Демо-шаблон новостного издания: редакция, события и люди вымышлены</p></div></footer>
+</body>
+</html>

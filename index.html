@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пятая линия — новости города</title>
+  <meta name="description" content="Городское издание: транспорт, культура, спорт, еда и всё, что происходит рядом с вами.">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="news.js" defer></script>
+  <script src="portal.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="mast">
+    <div class="wrap mast__top"><span id="today" class="small"></span><a class="logo" href="index.html">Пятая линия</a><span class="small weather" title="Погода — демо-данные">+7° облачно</span></div>
+    <nav class="wrap rubrics" aria-label="Рубрики" id="rubrics"><a href="index.html">Главное</a></nav>
+  </header>
+  <div class="ticker" aria-label="Коротко"><div class="wrap ticker__row"><b>Коротко</b><div class="ticker__track"><ul id="ticker"></ul></div></div></div>
+  <main id="main" class="wrap" data-page="home">
+    <section class="front" aria-label="Главные новости"><div id="lead"></div><div class="front__side" id="latest"></div></section>
+    <div class="cols">
+      <div id="sections"></div>
+      <aside class="aside">
+        <section class="box"><h2 class="box__title">Самое читаемое</h2><ol class="popular" id="popular"></ol></section>
+        <section class="box box--dark" aria-labelledby="nl-title"><h2 class="box__title" id="nl-title">Вечерняя рассылка</h2><p>Пять главных новостей дня — в 19:00. Без рекламы.</p>
+          <form class="nl" id="nl" novalidate><label class="sr" for="nl-email">Email</label><input id="nl-email" type="email" autocomplete="email" placeholder="you@example.com"><button type="submit">Подписаться</button><p class="nl__msg" role="status"></p></form></section>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo logo--sm" href="index.html">Пятая линия</a><p>© <span data-current-year>2026</span> · Демо-шаблон новостного издания: редакция, события и люди вымышлены</p></div></footer>
+</body>
+</html>
