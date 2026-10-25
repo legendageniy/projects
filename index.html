@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Северный ветер — группа. Концерты и альбомы</title>
+  <meta name="description" content="Инди-фолк группа «Северный ветер»: концертный тур 2026–2027, альбомы, фрагменты песен и контакты для организаторов.">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">Северный ветер</a>
+      <nav class="nav" aria-label="Разделы"><a href="#tour">Тур</a><a href="#music">Музыка</a><a href="#band">Группа</a><a href="#contact">Контакты</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <canvas id="aurora" aria-hidden="true"></canvas>
+      <div class="wrap hero__inner">
+        <p class="kicker">Новый альбом «Полярный день» — уже везде</p>
+        <h1>Северный<br>ветер</h1>
+        <p class="lead">Инди-фолк из Архангельска: гармонь, синтезаторы и песни о холодном море. Большой тур этой зимой — 12 городов.</p>
+        <div class="cta"><a class="btn" href="#tour">Билеты на концерты</a><a class="btn btn--ghost" href="#music">Слушать</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="tour">
+      <div class="wrap">
+        <header class="head"><h2>Тур</h2>
+          <div class="tour-tools"><label>Город <select id="city"></select></label><label class="past"><input type="checkbox" id="show-past"> Прошедшие</label></div>
+        </header>
+        <ul class="dates" id="dates"></ul>
+      </div>
+    </section>
+
+    <section class="section section--deep" id="music">
+      <div class="wrap">
+        <header class="head"><h2>Музыка</h2><p class="muted">Нажмите ▶, чтобы послушать фрагмент — звук синтезируется прямо в браузере.</p></header>
+        <div class="viz-wrap"><canvas id="viz" width="1200" height="120" aria-hidden="true"></canvas><p class="now" id="now" aria-live="polite">Ничего не играет</p></div>
+        <div class="albums" id="albums"></div>
+      </div>
+    </section>
+
+    <section class="section" id="band">
+      <div class="wrap band">
+        <div><h2>Группа</h2><p>Собрались в 2017 году в Архангельске на квартирнике. Записали три альбома, сыграли на фестивалях «Дикая мята» и «Кубана». Пишем о море, дороге и людях, которые остаются.</p></div>
+        <ul class="members"><li><b>Анна Север</b>вокал, гармонь</li><li><b>Илья Морошкин</b>гитара, синтезаторы</li><li><b>Гоша Лёд</b>бас</li><li><b>Петя Шторм</b>барабаны</li></ul>
+      </div>
+    </section>
+
+    <section class="section section--deep" id="contact">
+      <div class="wrap contact">
+        <div><h2>Контакты</h2><p>Концерты и фестивали: <a href="mailto:booking@veter.example">booking@veter.example</a><br>Пресса: <a href="mailto:press@veter.example">press@veter.example</a></p></div>
+        <form id="news" class="news" novalidate><label for="n-email">Узнавать о концертах первыми</label><div><input id="n-email" type="email" placeholder="you@example.com" autocomplete="email"><button type="submit">Подписаться</button></div><p class="n-msg" role="status"></p></form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">© <span data-current-year>2026</span> Северный ветер · Демо-шаблон: группа, концерты и альбомы вымышлены</div></footer>
+</body>
+</html>
