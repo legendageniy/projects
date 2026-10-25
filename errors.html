@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ошибки и лимиты — Квант API</title>
+  <meta name="description" content="API использует HTTP-коды: 2xx — успех, 4xx — ошибка в запросе, 5xx — сбой на нашей стороне. Формат ошибки { "error": { "type": "invalid_request", "cod">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { const t = localStorage.getItem("kvant-docs-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="search-index.js" defer></script>
+  <script src="docs.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к содержанию</a>
+  <header class="top">
+    <button class="icon-btn menu-btn" type="button" aria-label="Разделы" aria-expanded="false" aria-controls="nav" id="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M10 8v16M10 16l9-8M14 13l8 11" stroke="var(--bg)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>Квант <span>Docs</span></a>
+    <button class="search-btn" type="button" id="open-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><span>Поиск по документации</span><kbd>Ctrl K</kbd></button>
+    <span class="version">API v1</span>
+    <button class="icon-btn" type="button" id="theme" aria-label="Тёмная тема" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+  </header>
+  <div class="layout">
+    <nav class="nav" id="nav" aria-label="Документация"><p class="nav__group">Введение</p><ul><li><a href="index.html">Обзор</a></li></ul><p class="nav__group">Основы</p><ul><li><a href="auth.html">Аутентификация</a></li></ul><p class="nav__group">Справочник API</p><ul><li><a href="payments.html">Платежи</a></li><li><a href="webhooks.html">Вебхуки</a></li><li><a href="errors.html" aria-current="page">Ошибки и лимиты</a></li></ul></nav>
+    <main id="content" class="content">
+      <p class="crumbs">Справочник API</p>
+      <h1>Ошибки и лимиты</h1>
+      
+<p class="lead">API использует HTTP-коды: <code>2xx</code> — успех, <code>4xx</code> — ошибка в запросе, <code>5xx</code> — сбой на нашей стороне.</p>
+<h2 id="format">Формат ошибки</h2>
+<div class="code"><pre data-lang="json" data-label="JSON"><code>{
+  &quot;error&quot;: {
+    &quot;type&quot;: &quot;invalid_request&quot;,
+    &quot;code&quot;: &quot;amount_too_small&quot;,
+    &quot;message&quot;: &quot;Минимальная сумма платежа — 1 ₽ (100 копеек).&quot;,
+    &quot;param&quot;: &quot;amount&quot;
+  }
+}</code></pre></div>
+<h2 id="codes">Коды ответов</h2>
+<div class="table-wrap"><table class="params"><thead><tr><th scope="col">Код</th><th scope="col">Значение</th><th scope="col">Что делать</th></tr></thead><tbody>
+<tr><td><code>400</code></td><td>Неверные параметры</td><td>Смотрите поле <code>param</code></td></tr>
+<tr><td><code>401</code></td><td>Нет или неверный ключ</td><td>Проверьте заголовок <code>Authorization</code></td></tr>
+<tr><td><code>404</code></td><td>Объект не найден</td><td>Проверьте ID и среду (test/live)</td></tr>
+<tr><td><code>409</code></td><td>Конфликт идемпотентности</td><td>Тот же ключ с другими параметрами</td></tr>
+<tr><td><code>429</code></td><td>Превышен лимит запросов</td><td>Повторите после <code>Retry-After</code></td></tr>
+<tr><td><code>500</code></td><td>Ошибка сервера</td><td>Повторите с тем же <code>Idempotency-Key</code></td></tr></tbody></table></div>
+<h2 id="limits">Лимиты запросов</h2>
+<p>100 запросов в секунду на ключ в боевой среде и 25 — в тестовой. Текущее состояние лимита возвращается в заголовках <code>RateLimit-Remaining</code> и <code>RateLimit-Reset</code>.</p>
+<h2 id="backoff">Повтор с задержкой</h2>
+<div class="code"><pre data-lang="js" data-label="Node.js"><code>async function withRetry(fn, attempts = 4) {
+  for (let i = 0; ; i++) {
+    try { return await fn(); }
+    catch (err) {
+      const retryable = err.status === 429 || err.status &gt;= 500;
+      if (!retryable || i === attempts - 1) throw err;
+      await new Promise((r) =&gt; setTimeout(r, 2 ** i * 500));
+    }
+  }
+}</code></pre></div>
+
+      <div class="feedback" aria-live="polite"><span>Страница помогла?</span><button type="button" data-fb="yes">Да</button><button type="button" data-fb="no">Нет</button></div>
+      <nav class="pager" aria-label="Соседние страницы"><a class="pn pn--prev" href="webhooks.html"><small>Назад</small>Вебхуки</a></nav>
+      <footer class="footer">© <span data-current-year>2026</span> · Демо-шаблон документации: сервис «Квант», ключи и адреса вымышлены</footer>
+    </main>
+    <aside class="toc" aria-label="На этой странице"><p>На этой странице</p><ul><li><a href="#format">Формат ошибки</a></li><li><a href="#codes">Коды ответов</a></li><li><a href="#limits">Лимиты запросов</a></li><li><a href="#backoff">Повтор с задержкой</a></li></ul></aside>
+  </div>
+  <dialog class="search" id="search" aria-label="Поиск">
+    <div class="search__bar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="q" placeholder="Например: возврат, подпись, 429" autocomplete="off" aria-label="Поиск по документации" aria-controls="results" role="combobox" aria-expanded="true" aria-autocomplete="list"><kbd>Esc</kbd></div>
+    <ul class="results" id="results" role="listbox" aria-label="Результаты"></ul>
+  </dialog>
+</body>
+</html>

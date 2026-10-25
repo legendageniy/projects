@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вебхуки — Квант API</title>
+  <meta name="description" content="Вебхуки сообщают вашему серверу о событиях: платёж прошёл, возврат выполнен, платёж отменён. Не опрашивайте API в цикле — подпишитесь на события. Собы">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { const t = localStorage.getItem("kvant-docs-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="search-index.js" defer></script>
+  <script src="docs.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к содержанию</a>
+  <header class="top">
+    <button class="icon-btn menu-btn" type="button" aria-label="Разделы" aria-expanded="false" aria-controls="nav" id="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M10 8v16M10 16l9-8M14 13l8 11" stroke="var(--bg)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>Квант <span>Docs</span></a>
+    <button class="search-btn" type="button" id="open-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><span>Поиск по документации</span><kbd>Ctrl K</kbd></button>
+    <span class="version">API v1</span>
+    <button class="icon-btn" type="button" id="theme" aria-label="Тёмная тема" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+  </header>
+  <div class="layout">
+    <nav class="nav" id="nav" aria-label="Документация"><p class="nav__group">Введение</p><ul><li><a href="index.html">Обзор</a></li></ul><p class="nav__group">Основы</p><ul><li><a href="auth.html">Аутентификация</a></li></ul><p class="nav__group">Справочник API</p><ul><li><a href="payments.html">Платежи</a></li><li><a href="webhooks.html" aria-current="page">Вебхуки</a></li><li><a href="errors.html">Ошибки и лимиты</a></li></ul></nav>
+    <main id="content" class="content">
+      <p class="crumbs">Справочник API</p>
+      <h1>Вебхуки</h1>
+      
+<p class="lead">Вебхуки сообщают вашему серверу о событиях: платёж прошёл, возврат выполнен, платёж отменён. Не опрашивайте API в цикле — подпишитесь на события.</p>
+<h2 id="events">События</h2>
+<div class="table-wrap"><table class="params"><thead><tr><th scope="col">Параметр</th><th scope="col">Тип</th><th scope="col">Описание</th></tr></thead><tbody><tr><td><code>payment.succeeded</code></td><td><span class="type">event</span></td><td>Деньги списаны, заказ можно отгружать.</td></tr><tr><td><code>payment.canceled</code></td><td><span class="type">event</span></td><td>Покупатель отказался или истекло время.</td></tr><tr><td><code>refund.succeeded</code></td><td><span class="type">event</span></td><td>Возврат зачислен покупателю.</td></tr></tbody></table></div>
+<h2 id="payload">Тело запроса</h2>
+<div class="code"><pre data-lang="json" data-label="JSON"><code>{
+  &quot;id&quot;: &quot;evt_9Lm2Qa7&quot;,
+  &quot;type&quot;: &quot;payment.succeeded&quot;,
+  &quot;created_at&quot;: &quot;2026-10-20T09:41:15Z&quot;,
+  &quot;data&quot;: { &quot;object&quot;: { &quot;id&quot;: &quot;pay_2Hq8sK1mXz&quot;, &quot;amount&quot;: 50000, &quot;status&quot;: &quot;succeeded&quot; } }
+}</code></pre></div>
+<h2 id="signature">Проверка подписи</h2>
+<p>Каждый запрос содержит заголовок <code>Kvant-Signature</code> — HMAC-SHA256 от тела запроса с вашим секретом вебхука. Проверяйте подпись до любой обработки.</p>
+<div class="code code--tabs"><pre data-lang="js" data-label="Node.js"><code>import crypto from &quot;node:crypto&quot;;
+
+export function verify(rawBody, header, secret) {
+  const expected = crypto.createHmac(&quot;sha256&quot;, secret).update(rawBody).digest(&quot;hex&quot;);
+  const a = Buffer.from(expected), b = Buffer.from(header ?? &quot;&quot;);
+  return a.length === b.length &amp;&amp; crypto.timingSafeEqual(a, b);
+}</code></pre><pre data-lang="python" data-label="Python"><code>import hmac, hashlib
+
+def verify(raw_body: bytes, header: str, secret: str) -&gt; bool:
+    expected = hmac.new(secret.encode(), raw_body, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected, header or &quot;&quot;)</code></pre></div>
+<aside class="note note--warn"><p><b>Сырые данные.</b> Считайте подпись по исходным байтам тела, до парсинга JSON — иначе пробелы и порядок ключей изменят хеш.</p></aside>
+<h2 id="retries">Повторы</h2>
+<p>Ответьте кодом <code>2xx</code> в течение 10 секунд. Иначе запрос повторится через 1, 5, 30 минут, затем каждые 2 часа в течение суток. События могут прийти повторно или не по порядку — обрабатывайте их идемпотентно по <code>id</code>.</p>
+
+      <div class="feedback" aria-live="polite"><span>Страница помогла?</span><button type="button" data-fb="yes">Да</button><button type="button" data-fb="no">Нет</button></div>
+      <nav class="pager" aria-label="Соседние страницы"><a class="pn pn--prev" href="payments.html"><small>Назад</small>Платежи</a><a class="pn pn--next" href="errors.html"><small>Далее</small>Ошибки и лимиты</a></nav>
+      <footer class="footer">© <span data-current-year>2026</span> · Демо-шаблон документации: сервис «Квант», ключи и адреса вымышлены</footer>
+    </main>
+    <aside class="toc" aria-label="На этой странице"><p>На этой странице</p><ul><li><a href="#events">События</a></li><li><a href="#payload">Тело запроса</a></li><li><a href="#signature">Проверка подписи</a></li><li><a href="#retries">Повторы</a></li></ul></aside>
+  </div>
+  <dialog class="search" id="search" aria-label="Поиск">
+    <div class="search__bar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="q" placeholder="Например: возврат, подпись, 429" autocomplete="off" aria-label="Поиск по документации" aria-controls="results" role="combobox" aria-expanded="true" aria-autocomplete="list"><kbd>Esc</kbd></div>
+    <ul class="results" id="results" role="listbox" aria-label="Результаты"></ul>
+  </dialog>
+</body>
+</html>

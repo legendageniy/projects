@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аутентификация — Квант API</title>
+  <meta name="description" content="Каждый запрос подписывается секретным ключом в заголовке Authorization . Ключи бывают тестовые и боевые. Типы ключей Префикс Где использовать Деньги s">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { const t = localStorage.getItem("kvant-docs-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="search-index.js" defer></script>
+  <script src="docs.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к содержанию</a>
+  <header class="top">
+    <button class="icon-btn menu-btn" type="button" aria-label="Разделы" aria-expanded="false" aria-controls="nav" id="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M10 8v16M10 16l9-8M14 13l8 11" stroke="var(--bg)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>Квант <span>Docs</span></a>
+    <button class="search-btn" type="button" id="open-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><span>Поиск по документации</span><kbd>Ctrl K</kbd></button>
+    <span class="version">API v1</span>
+    <button class="icon-btn" type="button" id="theme" aria-label="Тёмная тема" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+  </header>
+  <div class="layout">
+    <nav class="nav" id="nav" aria-label="Документация"><p class="nav__group">Введение</p><ul><li><a href="index.html">Обзор</a></li></ul><p class="nav__group">Основы</p><ul><li><a href="auth.html" aria-current="page">Аутентификация</a></li></ul><p class="nav__group">Справочник API</p><ul><li><a href="payments.html">Платежи</a></li><li><a href="webhooks.html">Вебхуки</a></li><li><a href="errors.html">Ошибки и лимиты</a></li></ul></nav>
+    <main id="content" class="content">
+      <p class="crumbs">Основы</p>
+      <h1>Аутентификация</h1>
+      
+<p class="lead">Каждый запрос подписывается секретным ключом в заголовке <code>Authorization</code>. Ключи бывают тестовые и боевые.</p>
+<h2 id="keys">Типы ключей</h2>
+<div class="table-wrap"><table class="params"><thead><tr><th scope="col">Префикс</th><th scope="col">Где использовать</th><th scope="col">Деньги</th></tr></thead><tbody>
+<tr><td><code>sk_test_</code></td><td>Сервер, разработка и автотесты</td><td>Не списываются</td></tr>
+<tr><td><code>sk_live_</code></td><td>Сервер, боевая среда</td><td>Реальные платежи</td></tr>
+<tr><td><code>pk_live_</code></td><td>Браузер и мобильное приложение</td><td>Только токенизация карты</td></tr></tbody></table></div>
+<aside class="note note--warn"><p><b>Важно.</b> Секретный ключ <code>sk_</code> никогда не должен попадать в браузер, мобильное приложение или публичный репозиторий.</p></aside>
+<h2 id="header">Заголовок запроса</h2>
+<div class="code"><pre data-lang="http" data-label="HTTP"><code>POST /v1/payments HTTP/1.1
+Host: api.kvant.example
+Authorization: Bearer sk_test_ВАШ_КЛЮЧ
+Content-Type: application/x-www-form-urlencoded</code></pre></div>
+<h2 id="rotation">Ротация ключей</h2>
+<p>Создайте новый ключ, разверните его на серверах, затем отзовите старый. В течение 24 часов после отзыва старый ключ продолжает работать — это время на откат.</p>
+<h2 id="idempotency">Идемпотентность</h2>
+<p>Передавайте заголовок <code>Idempotency-Key</code> во всех запросах, создающих объекты. Повторный запрос с тем же ключом в течение 24 часов вернёт тот же результат и не создаст дубль.</p>
+<div class="code"><pre data-lang="js" data-label="Node.js"><code>// безопасно повторять при сетевой ошибке
+const key = `order-${order.id}-payment`;
+await kvant.payments.create(params, { idempotencyKey: key });</code></pre></div>
+
+      <div class="feedback" aria-live="polite"><span>Страница помогла?</span><button type="button" data-fb="yes">Да</button><button type="button" data-fb="no">Нет</button></div>
+      <nav class="pager" aria-label="Соседние страницы"><a class="pn pn--prev" href="index.html"><small>Назад</small>Обзор</a><a class="pn pn--next" href="payments.html"><small>Далее</small>Платежи</a></nav>
+      <footer class="footer">© <span data-current-year>2026</span> · Демо-шаблон документации: сервис «Квант», ключи и адреса вымышлены</footer>
+    </main>
+    <aside class="toc" aria-label="На этой странице"><p>На этой странице</p><ul><li><a href="#keys">Типы ключей</a></li><li><a href="#header">Заголовок запроса</a></li><li><a href="#rotation">Ротация ключей</a></li><li><a href="#idempotency">Идемпотентность</a></li></ul></aside>
+  </div>
+  <dialog class="search" id="search" aria-label="Поиск">
+    <div class="search__bar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="q" placeholder="Например: возврат, подпись, 429" autocomplete="off" aria-label="Поиск по документации" aria-controls="results" role="combobox" aria-expanded="true" aria-autocomplete="list"><kbd>Esc</kbd></div>
+    <ul class="results" id="results" role="listbox" aria-label="Результаты"></ul>
+  </dialog>
+</body>
+</html>
