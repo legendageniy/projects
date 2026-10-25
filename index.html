@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Разговоры на кухне — подкаст о простых вещах</title>
+  <meta name="description" content="Еженедельный подкаст о еде, привычках, деньгах и отношениях. Слушайте выпуски онлайн.">
+  <meta name="theme-color" content="#e4572e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><span aria-hidden="true">☕</span>Разговоры на кухне</a>
+      <nav class="nav" aria-label="Разделы"><a href="#episodes">Выпуски</a><a href="#hosts">Ведущие</a><a href="#subscribe">Подписаться</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div class="cover" aria-hidden="true">
+          <svg viewBox="0 0 300 300"><rect width="300" height="300" rx="28" fill="#e4572e"/><circle cx="150" cy="170" r="88" fill="#fdf6ec"/><path d="M90 150h120v40a60 60 0 0 1-120 0z" fill="#2a2a2a"/><path d="M210 160h16a18 18 0 0 1 0 36h-22" stroke="#2a2a2a" stroke-width="10" fill="none"/><path d="M125 120c-8-14 8-22 0-36M150 116c-8-14 8-22 0-36M175 120c-8-14 8-22 0-36" stroke="#f3a712" stroke-width="7" stroke-linecap="round" fill="none"/><text x="150" y="282" text-anchor="middle" font-family="Neucha" font-size="26" fill="#fdf6ec">разговоры на кухне</text></svg>
+        </div>
+        <div>
+          <p class="tag">Новый выпуск каждую среду</p>
+          <h1>Подкаст о простых вещах, о которых редко говорят вслух</h1>
+          <p class="lead">Ася и Тимур обсуждают деньги, привычки, родителей и почему никто не моет посуду сразу. Без экспертов, но с честными историями.</p>
+          <div class="latest" id="latest"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="episodes">
+      <div class="wrap">
+        <header class="head"><h2>Все выпуски</h2>
+          <div class="tools">
+            <label class="search"><span class="sr">Поиск по выпускам</span><input id="q" type="search" placeholder="Поиск: деньги, ремонт…"></label>
+            <div class="topics" role="group" aria-label="Темы" id="topics"></div>
+          </div>
+        </header>
+        <ol class="eps" id="eps" reversed></ol>
+      </div>
+    </section>
+
+    <section class="section section--mustard" id="hosts">
+      <div class="wrap hosts">
+        <article><div class="ava" style="--c:#e4572e">А</div><h3>Ася Белых</h3><p>Редактор и мама двоих детей. Отвечает за неудобные вопросы.</p></article>
+        <article><div class="ava" style="--c:#2a2a2a">Т</div><h3>Тимур Сафин</h3><p>Повар и бывший бухгалтер. Отвечает за цифры и рецепты в конце выпуска.</p></article>
+        <div class="hosts__text"><h2>Ведущие</h2><p>Мы дружим со школы и записываем подкаст на настоящей кухне, поэтому иногда в эфире слышно чайник.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="subscribe">
+      <div class="wrap sub">
+        <div><h2>Подписаться</h2><p>Слушайте там, где удобно, или получайте новый выпуск на почту.</p>
+          <ul class="platforms"><li><a href="#subscribe">Яндекс Музыка</a></li><li><a href="#subscribe">Apple Podcasts</a></li><li><a href="#subscribe">Telegram</a></li><li><a href="#subscribe">RSS</a></li></ul></div>
+        <form class="mail" id="mail" novalidate><label for="m-email">Email</label><div><input id="m-email" type="email" placeholder="you@example.com" autocomplete="email"><button type="submit">Подписаться</button></div><p class="m-msg" role="status"></p></form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">© <span data-current-year>2026</span> Разговоры на кухне · Демо-шаблон: подкаст и выпуски вымышлены, звук — синтезированная мелодия</div></footer>
+
+  <div class="mini" id="mini" hidden>
+    <div class="wrap mini__row">
+      <button type="button" class="mini__play" id="mini-play" aria-label="Пауза">❚❚</button>
+      <div class="mini__info"><b id="mini-title"></b><span id="mini-time">0:00 / 0:00</span></div>
+      <label class="sr" for="mini-seek">Перемотка</label><input type="range" id="mini-seek" min="0" max="100" step="0.1" value="0">
+      <button type="button" class="mini__btn" id="back15" aria-label="Назад на 15 секунд">−15</button>
+      <button type="button" class="mini__btn" id="fwd15" aria-label="Вперёд на 15 секунд">+15</button>
+      <button type="button" class="mini__btn" id="speed" aria-label="Скорость воспроизведения">1×</button>
+    </div>
+  </div>
+  <audio id="audio" preload="none"></audio>
+</body>
+</html>
