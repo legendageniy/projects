@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Модуль — диваны, собранные под вас</title>
+  <meta name="description" content="Конфигуратор диванов: форма, размер, ткань и ножки. Живое превью, проверка размера под вашу стену и расчёт цены.">
+  <meta name="theme-color" content="#2b2a27">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">модуль<span>.</span></a>
+      <nav class="nav" aria-label="Разделы"><a href="#config">Конфигуратор</a><a href="#fabrics">Ткани</a><a href="#delivery">Доставка</a></nav>
+      <button class="cart-btn" type="button" id="cart-open" aria-controls="cart" aria-expanded="false">Корзина <span class="badge" id="cart-count">0</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="eyebrow">Собственное производство · 14–21 день</p>
+          <h1>Диван, который подходит вашей стене, а не каталогу</h1>
+          <p class="lead">Выберите форму, число мест, ткань и ножки — увидите результат сразу и проверите, встанет ли он в комнату.</p>
+          <a class="btn" href="#config">Собрать диван</a>
+        </div>
+        <div class="hero__art" id="hero-art" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="config" id="config" aria-labelledby="cfg-title">
+      <div class="wrap config__grid">
+        <div class="stage">
+          <div class="stage__view" id="view" role="img" aria-label="Превью дивана"></div>
+          <div class="stage__plan">
+            <div class="plan" id="plan" aria-hidden="true"></div>
+            <div class="fit">
+              <label for="wall">Длина стены, см</label>
+              <input id="wall" type="number" inputmode="numeric" min="100" max="900" step="10" value="320">
+              <p id="fit-msg" role="status"></p>
+            </div>
+          </div>
+        </div>
+        <form class="panel" id="cfg" novalidate>
+          <h2 id="cfg-title">Конфигуратор</h2>
+          <fieldset><legend>Форма</legend><div class="opts opts--3" id="o-shape"></div></fieldset>
+          <fieldset><legend>Посадочных мест</legend><div class="opts opts--3" id="o-seats"></div></fieldset>
+          <fieldset><legend>Ткань <span class="legend-note" id="fabric-name"></span></legend><div class="swatches" id="o-fabric"></div></fieldset>
+          <fieldset><legend>Ножки</legend><div class="opts opts--3" id="o-legs"></div></fieldset>
+          <fieldset><legend>Декоративные подушки</legend><div class="step"><button type="button" data-pillow="-1" aria-label="Меньше подушек">−</button><output id="pillows">2</output><button type="button" data-pillow="1" aria-label="Больше подушек">+</button><small>по 1 900 ₽</small></div></fieldset>
+          <div class="summary">
+            <dl class="dims" id="dims"></dl>
+            <p class="price"><span id="price">—</span><small id="eta"></small></p>
+            <div class="actions"><button class="btn btn--wide" type="button" id="add">В корзину</button><button class="btn btn--ghost" type="button" id="share">Поделиться</button></div>
+            <p class="hint" id="share-msg" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="fabrics">
+      <div class="wrap">
+        <h2>Ткани</h2>
+        <p class="sub">Все ткани можно заказать образцами — бесплатно, курьером за 2 дня.</p>
+        <div class="fabric-list" id="fabric-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="delivery">
+      <div class="wrap facts">
+        <div><b>14–21 день</b><span>производство под заказ</span></div>
+        <div><b>Бесплатно</b><span>подъём и сборка от 80 000 ₽</span></div>
+        <div><b>3 года</b><span>гарантия на каркас и механизмы</span></div>
+        <div><b>Съёмные чехлы</b><span>можно стирать при 30°</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">модуль<span>.</span></span><p>© <span data-current-year>2026</span> · Демо-шаблон: магазин, товары и цены вымышлены</p></div></footer>
+
+  <div class="cart" id="cart" inert>
+    <div class="cart__scrim" data-close></div>
+    <aside class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <header class="cart__head"><h2 id="cart-title">Корзина</h2><button type="button" class="x" data-close aria-label="Закрыть корзину">×</button></header>
+      <ul class="cart__list" id="cart-list"></ul>
+      <div class="cart__foot"><p class="cart__total"><span>Итого</span><b id="cart-total">0 ₽</b></p><p class="hint" id="cart-note"></p><button class="btn btn--wide" type="button" id="checkout">Оформить заказ</button></div>
+    </aside>
+  </div>
+</body>
+</html>
