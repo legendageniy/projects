@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чисто и точка — уборка квартир и офисов</title>
+  <meta name="description" content="Поддерживающая, генеральная уборка и уборка после ремонта. Фиксированная цена, расчёт онлайн за минуту, свои средства и инвентарь.">
+  <meta name="theme-color" content="#0e7c7b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#drop"/></svg>Чисто и&nbsp;точка</a>
+      <nav class="nav" aria-label="Разделы"><a href="#calc">Цены</a><a href="#check">Что входит</a><a href="#ba">До и после</a><a href="#faq">Вопросы</a></nav>
+      <a class="btn btn--sm" href="#calc">Рассчитать</a>
+    </div>
+  </header>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="drop" viewBox="0 0 32 32"><path d="M16 3C11 10 7 15 7 20a9 9 0 0 0 18 0c0-5-4-10-9-17z" fill="currentColor"/><path d="M12 20a4 4 0 0 0 4 4" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></symbol></svg>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="pill">Работаем ежедневно с 8:00 до 22:00</p>
+          <h1>Вернём квартире <span class="hl">чистоту</span> за&nbsp;один визит</h1>
+          <p class="lead">Фиксированная цена до начала работ, свои средства и инвентарь. Если что-то не понравится — переделаем бесплатно в течение 24 часов.</p>
+          <div class="hero__cta"><a class="btn" href="#calc">Рассчитать стоимость</a><a class="link" href="#check">Что входит в уборку →</a></div>
+          <ul class="stats"><li><b>3 ч</b>в среднем на квартиру</li><li><b>142</b>пункта чек-листа</li><li><b>4,9</b>средняя оценка</li></ul>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="180" fill="#d9f3ee"/>
+            <g class="bubbles"><circle cx="90" cy="120" r="18" fill="#fff" opacity=".8"/><circle cx="320" cy="90" r="12" fill="#fff" opacity=".8"/><circle cx="330" cy="290" r="22" fill="#fff" opacity=".7"/><circle cx="70" cy="280" r="10" fill="#fff"/></g>
+            <rect x="120" y="150" width="130" height="190" rx="26" fill="#0e7c7b"/>
+            <rect x="150" y="105" width="70" height="55" rx="10" fill="#ffcb47"/>
+            <path d="M220 115h60l-10 30h-50z" fill="#ffcb47"/>
+            <rect x="140" y="200" width="90" height="70" rx="12" fill="#fff"/>
+            <path d="M160 235l15 15 30-30" stroke="#0e7c7b" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#a6e3d8"><circle cx="295" cy="150" r="7"/><circle cx="312" cy="170" r="5"/><circle cx="300" cy="190" r="4"/></g>
+            <path d="M260 300l40-80 14 6-34 82z" fill="#ff7b6b"/><rect x="262" y="300" width="60" height="30" rx="8" fill="#ffd6cf"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calc">
+      <div class="wrap">
+        <h2>Калькулятор уборки</h2>
+        <p class="sub">Цена окончательная: её не изменят на месте, если площадь и опции указаны верно.</p>
+        <div class="calc">
+          <form class="calc__form" id="calc-form">
+            <fieldset><legend>Вид уборки</legend>
+              <div class="seg" id="kind">
+                <label><input type="radio" name="kind" value="support" checked><span><b>Поддерживающая</b><small>пыль, полы, кухня, санузел</small></span></label>
+                <label><input type="radio" name="kind" value="general"><span><b>Генеральная</b><small>всё + шкафы, двери, плинтусы</small></span></label>
+                <label><input type="radio" name="kind" value="repair"><span><b>После ремонта</b><small>строительная пыль, затирка</small></span></label>
+              </div>
+            </fieldset>
+            <div class="row2">
+              <div class="field"><label for="area">Площадь, м²: <output id="area-out">50</output></label><input type="range" id="area" name="area" min="20" max="200" step="5" value="50"></div>
+              <div class="field"><span class="flabel" id="bath-l">Санузлов</span><div class="step" role="group" aria-labelledby="bath-l"><button type="button" data-d="-1" aria-label="Меньше">−</button><output id="bath">1</output><button type="button" data-d="1" aria-label="Больше">+</button></div></div>
+            </div>
+            <fieldset><legend>Дополнительно</legend>
+              <div class="extras" id="extras"></div>
+            </fieldset>
+            <fieldset><legend>Как часто</legend>
+              <div class="seg seg--sm">
+                <label><input type="radio" name="freq" value="0" checked><span>Разово</span></label>
+                <label><input type="radio" name="freq" value="10"><span>Раз в 2 недели −10%</span></label>
+                <label><input type="radio" name="freq" value="15"><span>Каждую неделю −15%</span></label>
+              </div>
+            </fieldset>
+          </form>
+          <aside class="calc__sum" aria-live="polite">
+            <p class="muted">Стоимость уборки</p>
+            <p class="price" id="price">—</p>
+            <p class="old" id="old"></p>
+            <ul class="lines" id="lines"></ul>
+            <p class="meta" id="meta"></p>
+            <a class="btn btn--wide" href="#book" id="to-book">Выбрать время</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="check">
+      <div class="wrap">
+        <h2>Что входит в уборку</h2>
+        <div class="tabs" role="tablist" aria-label="Помещения" id="room-tabs"></div>
+        <div class="panel" id="room-panel" role="tabpanel" tabindex="0"></div>
+      </div>
+    </section>
+
+    <section class="section" id="ba">
+      <div class="wrap ba">
+        <div>
+          <h2>До и после</h2>
+          <p class="sub">Потяните ползунок, чтобы сравнить. Так выглядит кухня после генеральной уборки: фасады, плита, фартук и пол.</p>
+          <ul class="ticks"><li>Убираем жир с фасадов и вытяжки</li><li>Отмываем швы плитки</li><li>Моем окна и подоконники</li></ul>
+        </div>
+        <div class="compare" id="compare">
+          <div class="compare__img compare__after" id="after"></div>
+          <div class="compare__img compare__before" id="before"></div>
+          <div class="compare__line" aria-hidden="true"><span>⟷</span></div>
+          <input type="range" min="0" max="100" value="50" id="ba-range" aria-label="Сравнение до и после">
+          <span class="tag tag--l">До</span><span class="tag tag--r">После</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="book">
+      <div class="wrap book">
+        <div>
+          <h2>Запись на уборку</h2>
+          <p class="sub" id="book-sum">Сначала рассчитайте стоимость — параметры подставятся сюда.</p>
+          <div class="days" id="days" role="radiogroup" aria-label="День"></div>
+          <div class="times" id="times" role="radiogroup" aria-label="Время начала"></div>
+        </div>
+        <form class="form" id="book-form" novalidate>
+          <div class="field"><label for="b-addr">Адрес</label><input id="b-addr" name="addr" autocomplete="street-address" placeholder="Улица, дом, квартира"></div>
+          <div class="row2"><div class="field"><label for="b-name">Имя</label><input id="b-name" name="name" autocomplete="name"></div><div class="field"><label for="b-phone">Телефон</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7"></div></div>
+          <label class="check"><input type="checkbox" name="pets"> В квартире есть животные</label>
+          <label class="check"><input type="checkbox" name="keys"> Оставлю ключи у консьержа</label>
+          <p class="err" role="alert"></p>
+          <button class="btn btn--wide" type="submit">Записаться</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap faq">
+        <h2>Частые вопросы</h2>
+        <div class="faq__list">
+          <details open><summary>Нужно ли быть дома во время уборки?</summary><p>Нет. Можно оставить ключи консьержу или встретить клинера и уйти — после работы пришлём фотоотчёт.</p></details>
+          <details><summary>Чем вы убираете?</summary><p>Привозим профессиональные средства и инвентарь. По запросу используем только гипоаллергенную химию без запаха — это бесплатно.</p></details>
+          <details><summary>Что если что-то разобьют?</summary><p>Ответственность клинера застрахована. Ущерб компенсируем в течение 5 рабочих дней после осмотра.</p></details>
+          <details><summary>Можно ли перенести уборку?</summary><p>Да, бесплатно — не позднее чем за 12 часов до визита.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#drop"/></svg>Чисто и&nbsp;точка</a><p>© <span data-current-year>2026</span> · Демо-шаблон: компания, цены и отзывы вымышлены</p></div></footer>
+</body>
+</html>
