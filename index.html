@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Совёнок — детский развивающий центр</title>
+  <meta name="description" content="Занятия для детей от 1 года до 10 лет: подготовка к школе, английский, рисование, робототехника и танцы. Первое занятие бесплатно.">
+  <meta name="theme-color" content="#24325f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="owl" viewBox="0 0 120 120"><path d="M20 40 Q22 14 36 22 Q60 6 84 22 Q98 14 100 40 Q112 80 88 104 Q60 120 32 104 Q8 80 20 40Z" fill="#8a6bd1"/><path d="M38 70 Q60 60 82 70 Q86 98 60 104 Q34 98 38 70Z" fill="#c9b8f2"/><circle cx="43" cy="48" r="17" fill="#fff"/><circle cx="77" cy="48" r="17" fill="#fff"/><circle cx="46" cy="50" r="8" fill="#24325f"/><circle cx="74" cy="50" r="8" fill="#24325f"/><circle cx="48" cy="47" r="3" fill="#fff"/><circle cx="76" cy="47" r="3" fill="#fff"/><path d="M55 60 L65 60 L60 69Z" fill="#ff8a3d"/><g stroke="#8a6bd1" stroke-width="3" fill="none" stroke-linecap="round"><path d="M50 78q4 4 8 0M62 86q4 4 8 0M50 92q4 4 8 0"/></g></symbol>
+  </svg>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top"><svg aria-hidden="true"><use href="#owl"/></svg><span>Совёнок</span></a>
+      <nav class="nav" aria-label="Разделы"><a href="#programs">Занятия</a><a href="#schedule">Расписание</a><a href="#prices">Цены</a><a href="#game">Игра</a></nav>
+      <button class="btn btn--sm" type="button" data-trial>Пробное занятие</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="hand">учимся, играя!</p>
+          <h1>Развивающий центр, куда ребёнок <span class="u">просится сам</span></h1>
+          <p class="lead">Мини-группы до 8 детей, занятия по 45 минут, педагоги с профильным образованием. Родители ждут в уютной комнате с чаем — или смотрят трансляцию из класса.</p>
+          <div class="hero__cta"><button class="btn" type="button" data-trial>Записаться на бесплатное занятие</button></div>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 400 380">
+            <circle cx="200" cy="200" r="160" fill="#ffe2c7"/>
+            <g class="spin"><circle cx="70" cy="90" r="22" fill="#6cc3f5"/><rect x="300" y="60" width="44" height="44" rx="8" fill="#7bc96f" transform="rotate(14 322 82)"/><path d="M350 210l26 46h-52z" fill="#ff9fb2"/><circle cx="60" cy="300" r="14" fill="#ffcf4a"/></g>
+            <use href="#owl" x="90" y="60" width="220" height="220"/>
+            <rect x="80" y="280" width="240" height="26" rx="13" fill="#24325f"/>
+            <g font-family="Amatic SC" font-weight="700" font-size="44"><text x="98" y="352" fill="#ff8a3d">А</text><text x="150" y="352" fill="#6cc3f5">Б</text><text x="200" y="352" fill="#7bc96f">В</text><text x="252" y="352" fill="#ff9fb2">1 2 3</text></g>
+          </svg>
+        </div>
+      </div>
+      <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q180 0 360 30T720 30T1080 30T1440 30V60H0Z" fill="#fff"/></svg>
+    </section>
+
+    <section class="section section--white" id="programs">
+      <div class="wrap">
+        <h2>Занятия по возрасту</h2>
+        <div class="ages" role="group" aria-label="Возраст ребёнка" id="ages"></div>
+        <div class="programs" id="program-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="wrap">
+        <h2>Расписание на неделю</h2>
+        <p class="sub" id="sched-note">Показаны все группы. Выберите возраст выше, чтобы оставить только подходящие.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Расписание, прокручивается по горизонтали"><table class="sched" id="sched"></table></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="prices">
+      <div class="wrap">
+        <h2>Абонементы</h2>
+        <div class="switch" role="group" aria-label="Количество занятий в месяц"><button type="button" data-n="4" aria-pressed="false">4 занятия</button><button type="button" data-n="8" aria-pressed="true">8 занятий</button><button type="button" data-n="12" aria-pressed="false">12 занятий</button></div>
+        <div class="plans" id="plans"></div>
+        <p class="sub small">Второму ребёнку из семьи — скидка 10%. Пропуск по болезни со справкой переносится на следующий месяц.</p>
+      </div>
+    </section>
+
+    <section class="section" id="game">
+      <div class="wrap game">
+        <div>
+          <h2>Найди пару</h2>
+          <p class="sub">Пока вы выбираете занятие, ребёнок может потренировать память. Переворачивайте по две карточки — найдите всех зверят.</p>
+          <p class="score" aria-live="polite"><span>Ходов: <b id="moves">0</b></span><span>Пар: <b id="pairs">0</b> из 6</span></p>
+          <button class="btn btn--ghost" type="button" id="restart">Начать заново</button>
+        </div>
+        <div class="board" id="board" aria-label="Игровое поле"></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="contacts">
+      <div class="wrap contacts">
+        <div><h2>Приходите знакомиться</h2><p class="sub">Покажем классы, познакомим с педагогом и подберём группу. Пробное занятие — бесплатно и без обязательств.</p><button class="btn" type="button" data-trial>Записаться</button></div>
+        <ul class="facts"><li><b>Пн–Сб</b>с 9:00 до 20:00</li><li><b>8 детей</b>максимум в группе</li><li><b>45 минут</b>одно занятие</li><li><b>Видео из класса</b>для родителей</li></ul>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><a class="logo" href="#top"><svg aria-hidden="true"><use href="#owl"/></svg><span>Совёнок</span></a><p>© <span data-current-year>2026</span> · Демо-шаблон: центр, педагоги и цены вымышлены</p></div></footer>
+
+  <dialog class="modal" id="trial" aria-labelledby="trial-title">
+    <form method="dialog" class="modal__close-form"><button class="modal__close" aria-label="Закрыть">×</button></form>
+    <form class="trial" id="trial-form" novalidate>
+      <h2 id="trial-title">Пробное занятие</h2>
+      <div class="field"><label for="t-child">Имя ребёнка</label><input id="t-child" name="child"></div>
+      <div class="field"><label for="t-age">Возраст</label><select id="t-age" name="age"></select></div>
+      <div class="field"><label for="t-prog">Занятие</label><select id="t-prog" name="prog"></select></div>
+      <div class="field"><label for="t-slot">Ближайшее время</label><select id="t-slot" name="slot"></select></div>
+      <div class="field"><label for="t-phone">Телефон родителя</label><input id="t-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7"></div>
+      <p class="err" role="alert"></p>
+      <button class="btn btn--wide" type="submit">Записаться</button>
+    </form>
+  </dialog>
+</body>
+</html>
