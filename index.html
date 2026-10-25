@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Букетная — доставка цветов и конструктор букетов</title>
+  <meta name="description" content="Соберите свой букет онлайн или выберите готовый. Доставка по городу за 2 часа, открытка в подарок.">
+  <meta name="theme-color" content="#2f4a3a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">Букетная</a>
+      <nav class="nav" aria-label="Разделы"><a href="#builder">Собрать букет</a><a href="#ready">Готовые</a><a href="#delivery">Доставка</a></nav>
+      <a class="phone" href="tel:+74950000000">+7 495 000-00-00</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid"><div class="hero__inner">
+        <h1>Букет, который вы <em>собрали сами</em></h1>
+        <p>Выберите цветы, оттенки и упаковку — флорист соберёт точно так же. Доставим за 2 часа или к нужному времени.</p>
+        <a class="btn" href="#builder">Открыть конструктор</a>
+      </div><div class="hero__art" id="hero-art" aria-hidden="true"></div></div>
+    </section>
+
+    <section class="section" id="builder">
+      <div class="wrap builder">
+        <div class="preview">
+          <div class="vase" id="preview" role="img" aria-label="Превью букета"></div>
+          <p class="sum"><span id="b-count">0 цветов</span><b id="b-price">0 ₽</b></p>
+        </div>
+        <form class="controls" id="builder-form">
+          <h2>Конструктор букета</h2>
+          <fieldset><legend>Цветы</legend><ul class="flowers" id="flowers"></ul></fieldset>
+          <fieldset><legend>Зелень</legend><div class="chips"><label><input type="radio" name="green" value="none"><span>Без зелени</span></label><label><input type="radio" name="green" value="euc" checked><span>Эвкалипт +350 ₽</span></label><label><input type="radio" name="green" value="fern"><span>Папоротник +250 ₽</span></label></div></fieldset>
+          <fieldset><legend>Упаковка</legend><div class="chips wraps"><label><input type="radio" name="wrap" value="craft" checked><span><i style="--c:#d8b48a"></i>Крафт</span></label><label><input type="radio" name="wrap" value="blush"><span><i style="--c:#f2c7c1"></i>Пудровая</span></label><label><input type="radio" name="wrap" value="sage"><span><i style="--c:#b9c9b2"></i>Шалфей</span></label><label><input type="radio" name="wrap" value="box"><span><i style="--c:#2f4a3a"></i>Шляпная коробка +600 ₽</span></label></div></fieldset>
+          <button class="btn btn--wide" type="button" id="to-order">Заказать этот букет</button>
+          <p class="hint" id="hint" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--blush" id="ready">
+      <div class="wrap">
+        <h2>Готовые букеты</h2>
+        <div class="ready" id="ready-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="delivery">
+      <div class="wrap delivery">
+        <div><h2>Оформление и доставка</h2><ul class="facts"><li><b>от 2 часов</b>по городу, 390 ₽</li><li><b>Бесплатно</b>от 5 000 ₽</li><li><b>Фото букета</b>перед отправкой</li></ul><p class="your" id="your">Букет ещё не выбран</p></div>
+        <form class="order" id="order" novalidate>
+          <div class="row"><div class="field"><label for="o-date">Дата</label><input id="o-date" name="date" type="date"></div><div class="field"><label for="o-slot">Интервал</label><select id="o-slot" name="slot"></select></div></div>
+          <div class="field"><label for="o-addr">Адрес получателя</label><input id="o-addr" name="addr" autocomplete="street-address" placeholder="Улица, дом, квартира"></div>
+          <div class="row"><div class="field"><label for="o-to">Имя получателя</label><input id="o-to" name="to"></div><div class="field"><label for="o-phone">Ваш телефон</label><input id="o-phone" name="phone" type="tel" autocomplete="tel"></div></div>
+          <div class="field"><label for="o-card">Текст открытки <span class="muted" id="card-left">150</span></label><textarea id="o-card" name="card" rows="3" maxlength="150" placeholder="С днём рождения! Пусть каждый день будет как этот букет."></textarea></div>
+          <label class="check"><input type="checkbox" name="anon"> Не говорить получателю, от кого букет</label>
+          <p class="total"><span>Итого с доставкой</span><b id="o-total">—</b></p>
+          <p class="err" role="alert"></p>
+          <button class="btn" type="submit">Оформить заказ</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">Букетная</span><p>© <span data-current-year>2026</span> · Демо-шаблон: магазин, букеты и цены вымышлены</p></div></footer>
+</body>
+</html>
