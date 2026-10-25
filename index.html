@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пульс CRM — панель продаж</title>
+  <meta name="description" content="Демо интерфейса CRM: дашборд с KPI и графиками, таблица сделок с фильтрами и сортировкой, канбан-воронка с перетаскиванием.">
+  <meta name="theme-color" content="#1c5cab">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { const t = localStorage.getItem("pulse-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#view">Перейти к содержанию</a>
+  <div class="app">
+    <aside class="side" id="side">
+      <a class="brand" href="#overview"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M6 17h5l3-7 4 13 3-6h5" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Пульс</a>
+      <nav class="side__nav" aria-label="Разделы">
+        <a href="#overview" data-view="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zM14 20h6V11h-6zM4 20h6v-3H4zM14 7h6V4h-6z"/></svg>Обзор</a>
+        <a href="#deals" data-view="deals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Сделки</a>
+        <a href="#pipeline" data-view="pipeline"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v10h-4zM16 4h4v6h-4z"/></svg>Воронка</a>
+      </nav>
+      <div class="side__foot">
+        <p class="muted small">Демо-интерфейс. Компании, люди и суммы сгенерированы.</p>
+      </div>
+    </aside>
+    <div class="main">
+      <header class="top">
+        <button class="icon-btn menu-btn" type="button" id="menu" aria-label="Меню" aria-expanded="false" aria-controls="side"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <h1 id="view-title">Обзор</h1>
+        <label class="search"><span class="sr">Поиск по сделкам</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="global-search" placeholder="Найти сделку или компанию" autocomplete="off"></label>
+        <button class="icon-btn" type="button" id="theme" aria-label="Тёмная тема" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+        <span class="avatar" title="Вы вошли как Анна Р." aria-hidden="true">АР</span>
+      </header>
+      <main id="view" tabindex="-1">
+        <section id="overview" data-panel="overview" aria-labelledby="view-title">
+          <div class="filters" role="group" aria-label="Период">
+            <button type="button" data-range="7" aria-pressed="false">7 дней</button>
+            <button type="button" data-range="30" aria-pressed="true">30 дней</button>
+            <button type="button" data-range="90" aria-pressed="false">90 дней</button>
+            <span class="muted small" id="range-label"></span>
+          </div>
+          <div class="kpis" id="kpis"></div>
+          <div class="grid2">
+            <article class="card card--wide">
+              <header class="card__head"><div><h2>Выручка</h2><p class="muted small" id="rev-sub"></p></div>
+                <div class="legend"><span><i class="sw sw--rev"></i>Факт</span><span><i class="sw sw--plan"></i>План</span><button class="link" type="button" id="rev-table-btn" aria-expanded="false" aria-controls="rev-table">Таблица</button></div></header>
+              <div class="chart" id="rev-chart"></div>
+              <div class="table-scroll" id="rev-table" hidden></div>
+            </article>
+            <article class="card">
+              <header class="card__head"><div><h2>Воронка за период</h2><p class="muted small">Сколько сделок дошло до этапа</p></div></header>
+              <div id="funnel"></div>
+            </article>
+            <article class="card">
+              <header class="card__head"><div><h2>Источники сделок</h2><p class="muted small">Сумма выигранных, ₽</p></div></header>
+              <div class="chart" id="src-chart"></div>
+            </article>
+            <article class="card">
+              <header class="card__head"><div><h2>План менеджеров</h2><p class="muted small">Выполнение месячного плана</p></div></header>
+              <ul class="leaders" id="leaders"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="deals" data-panel="deals" aria-labelledby="view-title" hidden>
+          <div class="toolbar">
+            <label class="field-inline"><span>Этап</span><select id="f-stage"><option value="">Все</option></select></label>
+            <label class="field-inline"><span>Менеджер</span><select id="f-manager"><option value="">Все</option></select></label>
+            <span class="muted small" id="deals-count" aria-live="polite"></span>
+            <button class="btn btn--ghost" type="button" id="export">Экспорт CSV</button>
+          </div>
+          <div class="card card--flush">
+            <div class="table-scroll"><table class="table" id="deals-table"><caption class="sr">Сделки</caption><thead><tr>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="company">Компания</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="stage">Этап</button></th>
+              <th scope="col" aria-sort="none"><button type="button" data-sort="manager">Менеджер</button></th>
+              <th scope="col" aria-sort="none" class="num"><button type="button" data-sort="amount">Сумма</button></th>
+              <th scope="col" aria-sort="descending"><button type="button" data-sort="created">Создана</button></th>
+            </tr></thead><tbody></tbody></table></div>
+            <nav class="pager" aria-label="Страницы" id="pager"></nav>
+          </div>
+        </section>
+
+        <section id="pipeline" data-panel="pipeline" aria-labelledby="view-title" hidden>
+          <p class="muted small hint">Перетащите карточку в другую колонку или используйте кнопки ← → на карточке.</p>
+          <div class="board" id="board"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer" inert>
+    <div class="drawer__scrim" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="d-title">
+      <button class="icon-btn drawer__x" type="button" data-close aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div id="drawer-body"></div>
+    </aside>
+  </div>
+  <div class="tooltip" id="tip" role="presentation" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
