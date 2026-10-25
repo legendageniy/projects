@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корочка — пекарня. Предзаказ хлеба и выпечки</title>
+  <meta name="description" content="Хлеб на закваске, круассаны и торты. Закажите онлайн и заберите тёплым в удобное время.">
+  <meta name="theme-color" content="#a0522d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="wrap header__row">
+      <a class="logo" href="#top">Корочка</a>
+      <p class="hours" id="hours"></p>
+      <button class="cart-btn" type="button" id="open-cart" aria-controls="drawer" aria-expanded="false">Корзина <span class="count" id="count">0</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <h1>Хлеб, который пекут <span>ночью для вас</span></h1>
+          <p class="lead">Закажите до 20:00 — утром заберёте тёплым. Тесто на живой закваске, мука с мельницы в Тверской области, никаких улучшителей.</p>
+          <a class="btn" href="#menu">Выбрать выпечку</a>
+        </div>
+        <div class="hero__art" aria-hidden="true" id="hero-art"></div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <header class="head">
+          <div class="cats" role="group" aria-label="Категории" id="cats"></div>
+          <div class="allergens"><span>Без:</span><label><input type="checkbox" value="gluten"> глютена</label><label><input type="checkbox" value="nuts"> орехов</label><label><input type="checkbox" value="milk"> молока</label></div>
+        </header>
+        <div class="products" id="products"></div>
+      </div>
+    </section>
+
+    <section class="section section--butter">
+      <div class="wrap how">
+        <article><b>1</b><h3>Выберите</h3><p>Хлеб, выпечку или торт на заказ</p></article>
+        <article><b>2</b><h3>Укажите время</h3><p>Завтра с 8:00 или в любой день, кроме понедельника — у пекарей выходной</p></article>
+        <article><b>3</b><h3>Заберите тёплым</h3><p>Оплата при получении картой или наличными</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer__row"><span class="logo">Корочка</span><p>ул. Пекарная, 00 · <a href="tel:+74950000000">+7 495 000-00-00</a></p><p>© <span data-current-year>2026</span> · Демо-шаблон: пекарня и цены вымышлены</p></div></footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true">
+    <div class="drawer__head"><h2>Корзина</h2><button type="button" class="close" id="close-cart" aria-label="Закрыть корзину">✕</button></div>
+    <ul class="lines" id="lines"></ul>
+    <form class="checkout" id="checkout" novalidate>
+      <fieldset><legend>Когда заберёте</legend>
+        <div class="days" id="days" role="radiogroup" aria-label="День"></div>
+        <label class="sr" for="slot">Время</label><select id="slot" name="slot"></select>
+      </fieldset>
+      <div class="field"><label for="c-name">Имя</label><input id="c-name" name="name" autocomplete="name"></div>
+      <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></div>
+      <p class="total"><span>Итого</span><b id="total">0 ₽</b></p>
+      <p class="err" role="alert"></p>
+      <button class="btn btn--wide" type="submit">Оформить предзаказ</button>
+    </form>
+    <div class="done" id="done" hidden tabindex="-1"></div>
+  </aside>
+</body>
+</html>
